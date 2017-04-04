@@ -1,2 +1,5 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<%= link_to "How it works", profiles_path(current_user) %>
+<br>
+<%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "Message" %>
