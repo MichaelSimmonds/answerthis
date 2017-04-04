@@ -10,6 +10,11 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
+    <!-- app/views/layouts/application.html.erb -->
+    <%= render 'shared/navbar' %>
+    <!-- app/views/layouts/application.html.erb -->
+    <%= render 'shared/flashes' %>
+
     <%= yield %>
     <%= javascript_include_tag 'application' %>
   </body>
