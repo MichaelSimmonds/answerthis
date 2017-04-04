@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404120541) do
+ActiveRecord::Schema.define(version: 20170404125409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
+  end
 
   create_table "prize_pools", force: :cascade do |t|
     t.integer  "questionaire_id"
@@ -60,11 +68,21 @@ ActiveRecord::Schema.define(version: 20170404120541) do
     t.index ["profile_id"], name: "index_questionaires_on_profile_id", using: :btree
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "questionaire_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["questionaire_id"], name: "index_questions_on_questionaire_id", using: :btree
+  end
+
   create_table "responses", force: :cascade do |t|
     t.text     "content"
     t.integer  "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "answer_id"
     t.index ["profile_id"], name: "index_responses_on_profile_id", using: :btree
   end
 
@@ -102,10 +120,12 @@ ActiveRecord::Schema.define(version: 20170404120541) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "prize_pools", "prizes"
   add_foreign_key "prize_pools", "questionaires"
   add_foreign_key "profiles", "users"
   add_foreign_key "questionaires", "profiles"
+  add_foreign_key "questions", "questionaires"
   add_foreign_key "responses", "profiles"
   add_foreign_key "results", "profiles"
   add_foreign_key "results", "questionaires"
