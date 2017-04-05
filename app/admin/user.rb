@@ -6,6 +6,7 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs "Identity" do
       f.input :email
+      f.input :password
     end
     f.inputs "Admin" do
       f.input :admin
@@ -13,7 +14,7 @@ ActiveAdmin.register User do
     f.actions
   end
 
-  permit_params :email, :admin
+  permit_params :email, :admin, :password
 end
 
 # See permitted parameters documentation:
