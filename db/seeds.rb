@@ -20,8 +20,8 @@
 User.create!(email: "Ben@gmail.com", password: "111111")
 User.create!(email: "Luca@gmail.com", password: "222222")
 
-Profile.create!(first_name: "Ben", last_name: "Peterson", dob: 1989,22,4, gender: "Male", is_client: 1, company_name: "BMW", company_address: "Jekerstraat 55, Amsterdam", user_id: 1)
-Profile.create!(first_name: "Luca", last_name: "Roma", dob: 1982,25,1, gender: "Male", is_client: 0, company_name: "", company_address: "", user_id: 2)
+Profile.create!(first_name: "Ben", last_name: "Peterson", dob: Date.new(1999, 2, 21), gender: "Male", is_client: 1, company_name: "BMW", company_address: "Jekerstraat 55, Amsterdam", user_id: 1)
+Profile.create!(first_name: "Luca", last_name: "Roma", dob: Date.new(1959, 11, 21), gender: "Male", is_client: 0, company_name: "", company_address: "", user_id: 2)
 
 Questionnaire.create!(title: "market research BMW", description: "This questionnaire is about your preference as a potential car owner.", profile_id: 1,)
 

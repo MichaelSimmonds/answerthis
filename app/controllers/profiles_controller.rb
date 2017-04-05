@@ -18,12 +18,13 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile || current_user.profile.build
   end
 
   def update
-    # @user = User.new(user_params)
-    @profile.first_name = user_params[:first_name]
+    @profile = Profile.new(profile_params)
+    @profile.user = current_user
+    # @profile.first_name = profile_params[:first_name]
     @profile.save!
     flash[:notice] = "Profile set"
     redirect_to root_path
@@ -31,7 +32,7 @@ class ProfilesController < ApplicationController
 
   private
 
-  def user_params
+  def profile_params
     params.require(:profile).permit(:first_name, :last_name, :dob, :gender, :user_id)
   end
 
