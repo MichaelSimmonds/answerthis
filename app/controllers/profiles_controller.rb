@@ -14,12 +14,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @user_profile = Profile.find(params[:id])
+    @profile = Profile.find(params[:id])
   end
 
   def edit
-    
-    @user_profile = Profile.find(params[:id])
+    @profile = Profile.find(params[:id])
   end
 
   def update
@@ -33,7 +32,7 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :user_id)
+    params.require(:profile).permit(:first_name, :last_name, :dob, :gender, :user_id)
   end
 
   def set_user
