@@ -4,5 +4,7 @@
 
 <%= current_profile.is_client %>
 <% if current_profile.is_client == 1 %>
-<%= link_to "Create new Survey", new_questionnaire_path %>
+<%= link_to "Create new questionnaire", new_questionnaire_path %>
+<br>
+<%= link_to "Show all Questionnairs", questionnaires_path %>
 <% end %>
