@@ -16,7 +16,7 @@ class QuestionnairesController < ApplicationController
     @questionnaire = Questionnaire.new(questionnaire_params)
     @questionnaire.profile_id = current_profile.id
     @questionnaire.save
-    redirect_to root_path
+    redirect_to new_questionnaire_question_path(@questionnaire.id)
   end
 
   def client_show
