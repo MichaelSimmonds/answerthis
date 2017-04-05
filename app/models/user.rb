@@ -28,4 +28,8 @@ class User < ApplicationRecord
        return user
       end
 
+      def name
+        self.email
+      end
+
 end

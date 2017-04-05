@@ -1,7 +1,7 @@
 ActiveAdmin.register Profile do
 
 
-  permit_params :first_name, :last_name # etc...
+  permit_params :first_name, :last_name, :dob, :gender, :is_client, :company_name, :company_address, :user_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
