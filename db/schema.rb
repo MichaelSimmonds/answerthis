@@ -23,15 +23,6 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
-  create_table "prize_pools", force: :cascade do |t|
-    t.integer  "questionnaire_id"
-    t.integer  "prize_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["prize_id"], name: "index_prize_pools_on_prize_id", using: :btree
-    t.index ["questionnaire_id"], name: "index_prize_pools_on_questionnaire_id", using: :btree
-  end
-
   create_table "prizes", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -40,8 +31,10 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.integer  "quantity_remaining"
     t.float    "win_probability"
     t.string   "voucher_code"
+    t.integer  "questionnaire_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["questionnaire_id"], name: "index_prizes_on_questionnaire_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -51,7 +44,6 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.string   "gender"
     t.integer  "is_client"
     t.string   "company_name"
-    t.string   "company_contact"
     t.text     "company_address"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
@@ -90,9 +82,11 @@ ActiveRecord::Schema.define(version: 20170404150344) do
   create_table "results", force: :cascade do |t|
     t.integer  "status"
     t.integer  "profile_id"
+    t.integer  "prize_id"
     t.integer  "questionnaire_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.index ["prize_id"], name: "index_results_on_prize_id", using: :btree
     t.index ["profile_id"], name: "index_results_on_profile_id", using: :btree
     t.index ["questionnaire_id"], name: "index_results_on_questionnaire_id", using: :btree
   end
@@ -122,11 +116,11 @@ ActiveRecord::Schema.define(version: 20170404150344) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "prize_pools", "prizes"
-  add_foreign_key "prize_pools", "questionnaires"
+  add_foreign_key "prizes", "questionnaires"
   add_foreign_key "profiles", "users"
   add_foreign_key "questionnaires", "profiles"
   add_foreign_key "questions", "questionnaires"
+  add_foreign_key "results", "prizes"
   add_foreign_key "results", "profiles"
   add_foreign_key "results", "questionnaires"
 end

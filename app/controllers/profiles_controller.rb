@@ -22,10 +22,9 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.new(profile_params)
-    @profile.user = current_user
+    @profile = current_user.profile
     # @profile.first_name = profile_params[:first_name]
-    @profile.save!
+    @profile.update(profile_params)
     flash[:notice] = "Profile set"
     redirect_to root_path
   end
