@@ -5,4 +5,8 @@ class Profile < ApplicationRecord
   has_many :answers, through: :responses
   has_many :results
 
+
+  def name
+    self.user.email
+  end
 end
