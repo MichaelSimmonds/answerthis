@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20170404150344) do
   end
 
   create_table "prize_pools", force: :cascade do |t|
-    t.integer  "questionaire_id"
+    t.integer  "questionnaire_id"
     t.integer  "prize_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["prize_id"], name: "index_prize_pools_on_prize_id", using: :btree
-    t.index ["questionaire_id"], name: "index_prize_pools_on_questionaire_id", using: :btree
+    t.index ["questionnaire_id"], name: "index_prize_pools_on_questionnaire_id", using: :btree
   end
 
   create_table "prizes", force: :cascade do |t|
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.string   "gender"
     t.integer  "is_client"
     t.string   "company_name"
-    t.string   "comapny_contact"
+    t.string   "company_contact"
     t.text     "company_address"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
@@ -59,22 +59,22 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
-  create_table "questionaires", force: :cascade do |t|
+  create_table "questionnaires", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "profile_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["profile_id"], name: "index_questionaires_on_profile_id", using: :btree
+    t.index ["profile_id"], name: "index_questionnaires_on_profile_id", using: :btree
   end
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "questionaire_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["questionaire_id"], name: "index_questions_on_questionaire_id", using: :btree
+    t.integer  "questionnaire_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id", using: :btree
   end
 
   create_table "responses", force: :cascade do |t|
@@ -90,11 +90,11 @@ ActiveRecord::Schema.define(version: 20170404150344) do
   create_table "results", force: :cascade do |t|
     t.integer  "status"
     t.integer  "profile_id"
-    t.integer  "questionaire_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "questionnaire_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["profile_id"], name: "index_results_on_profile_id", using: :btree
-    t.index ["questionaire_id"], name: "index_results_on_questionaire_id", using: :btree
+    t.index ["questionnaire_id"], name: "index_results_on_questionnaire_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -123,10 +123,10 @@ ActiveRecord::Schema.define(version: 20170404150344) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "prize_pools", "prizes"
-  add_foreign_key "prize_pools", "questionaires"
+  add_foreign_key "prize_pools", "questionnaires"
   add_foreign_key "profiles", "users"
-  add_foreign_key "questionaires", "profiles"
-  add_foreign_key "questions", "questionaires"
+  add_foreign_key "questionnaires", "profiles"
+  add_foreign_key "questions", "questionnaires"
   add_foreign_key "results", "profiles"
-  add_foreign_key "results", "questionaires"
+  add_foreign_key "results", "questionnaires"
 end
