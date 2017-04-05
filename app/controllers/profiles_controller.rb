@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 
   ##We don't need add and create here as users will always come thru the account signup path before reaching this point.
 
-  before_action :set_user
+  before_action :set_user, only: [:create, :new]
 
   def index
   end
@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   def edit
@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :dob, :gender, :user_id)
+    params.require(:profile).permit(:first_name, :last_name, :dob, :gender, :user_id, :is_client)
   end
 
   def set_user

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :results, except: [ :show, :destroy ]
 
 
-  resources :questionnaires, only: [ :index, :show ] do
+  resources :questionnaires, only: [ :index, :show, :new ] do
     resources :questions, only: [:show ] do
       resources :answers, only: [ :show ]
     end
