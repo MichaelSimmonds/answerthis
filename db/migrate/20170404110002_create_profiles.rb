@@ -7,10 +7,9 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.string :gender
       t.integer :is_client
       t.string :company_name
-      t.string :comapny_contact
+      t.string :company_contact
       t.text :company_address
       t.references :user, foreign_key: true
-
       t.timestamps
     end
   end
