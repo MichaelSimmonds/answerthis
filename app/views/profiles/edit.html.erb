@@ -11,7 +11,10 @@
 <%= simple_form_for [@profile] do |f| %>
   <%= f.input :first_name, label: 'First name', input_html: {value: @profile.user.first_name, class:"form_field" }, readonly: prefilled, required: true%>
   <%= f.input :last_name, label: 'Last name', input_html: {value: @profile.user.last_name, class:"form_field" }, readonly: prefilled%>
-  <%= f.input :dob, label: 'Date of birth', input_html: {value: @profile.user.first_name, class:"form_field" }, readonly: false%>
-  <%= f.input :gender, label: 'Gender', input_html: {value: @profile.user.first_name, class:"form_field" }, readonly: false%>
+  <%= f.input :dob, label: 'Date of birth', input_html: {value: @profile.dob, class:"form_field" }, readonly: false%>
+  <%= f.input :gender, label: 'Gender', input_html: {value: @profile.gender, class:"form_field" }, readonly: false%>
+  <%= f.input :is_client, label: 'Client?', input_html: {value: @profile.is_client || 0, class: "form_field" }, readonly: false %>
   <%= f.submit %>
 <% end %>
+
+

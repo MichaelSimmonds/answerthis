@@ -2,8 +2,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
+<% if current_user %>
+<%= link_to "show my profile", profile_path(current_user) %>
+<% end %>
 
-
+<br>
 <%= link_to "How it works", profiles_path(current_user) %>
 <br>
 <%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "Message" %>
+<br>
+<%= link_to "Go to a questionnaire", questionnaire_path(@questionnaire.id) %>

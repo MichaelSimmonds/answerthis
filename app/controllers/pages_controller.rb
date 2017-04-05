@@ -4,6 +4,6 @@ class PagesController < ApplicationController
 
 
   def home
-    # @questionnaire = Questionnaire.first # a Questionnaire which the user has not yet taken
+    @questionnaire = Questionnaire.first # should be a random Questionnaire which the user has not yet taken
   end
 end

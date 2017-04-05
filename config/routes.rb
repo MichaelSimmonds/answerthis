@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-# __________________________________________________________________
-# __________________________________________________________________
+
+  ActiveAdmin.routes(self)
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', :registrations => "registrations"}
   # devise_for :users, :controllers => {:registrations => "registrations"}
@@ -13,20 +13,29 @@ Rails.application.routes.draw do
   resources :profiles, except: [ :destroy ]
 # __________________________________________________________________
 
-  resources :questionnaires, only: [ :index, :show ] do
-    resources :results, only: [ :new, :create ]
-    resources :prizes, only: [ :index, :show ]
-    resources :questions, only: [:show ] do
-      resources :answers, only: [ :show ]
-    end
+   resources :questionnaires, only: [ :index, :show, :new, :create ] do
+    resources :questions
   end
 
-  resources :questionnaires, only: [ :new, :create ] do
-    resources :prizes, except: [ :index, :show ]
-    resources :questions, except: [ :show ] do
-      resources :answers, except: [ :show ]
-    end
+  resources :questions, only: [:show] do
+    resources :answers
   end
+
+#   resources :questionnaires, only: [ :index, :show, :new, :create ] do
+#     resources :results, only: [ :new, :create ]
+#     resources :prizes, only: [ :index, :show ]
+
+#     resources :questions, only: [:show ] do
+#       resources :answers, only: [ :show ]
+#     end
+#   end
+
+#   resources :questionnaires, only: [ :new, :create ] do
+#     resources :prizes, except: [ :index, :show ]
+#     resources :questions, except: [ :show ] do
+#       resources :answers, except: [ :show ]
+#     end
+#   end
 
 # __________________________________________________________________
 
