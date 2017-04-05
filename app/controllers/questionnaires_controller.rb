@@ -3,6 +3,8 @@ class QuestionnairesController < ApplicationController
   end
 
   def show
+    @questionnaire = Questionnaire.find(params[:id])
+    @prizes = Prize.where(questionnaire_id: @questionnaire.id)
   end
 
   def new
