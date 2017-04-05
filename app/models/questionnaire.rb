@@ -1,4 +1,4 @@
-class Questionaire < ApplicationRecord
+class Questionnaire < ApplicationRecord
   belongs_to :profile
   has_many :profiles, through: :results
   has_many :prizes, through: :prize_pools
