@@ -10,4 +10,7 @@ class QuestionnairesController < ApplicationController
 
   def create
   end
+
+  def client_show
+  end
 end
