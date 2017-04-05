@@ -8,6 +8,7 @@ class CreatePrizes < ActiveRecord::Migration[5.0]
       t.integer :quantity_remaining
       t.float :win_probability
       t.string :voucher_code
+      t.references :questionnaire, foreign_key: true
 
       t.timestamps
     end
