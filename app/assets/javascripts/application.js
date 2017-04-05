@@ -3,3 +3,4 @@
 //= require bootstrap-sprockets
 //= require cable
 //= require form_completeion_percentage
+//= require questionnaires_show
