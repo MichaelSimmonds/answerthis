@@ -4,6 +4,6 @@ class PagesController < ApplicationController
 
 
   def home
-    @questionnaire = Questionaire.first # a Questionaire which the user has not yet taken
+    # @questionnaire = Questionaire.first # a Questionaire which the user has not yet taken
   end
 end
