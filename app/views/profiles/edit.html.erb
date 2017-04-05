@@ -1,15 +1,17 @@
 <h1>Profiles#edit</h1>
 <p>Find me in app/views/profiles/edit.html.erb</p>
 <h1>you are</h1>
+<h3>completed</h3>
+<h3 class="completed-percent"></h3><h3>%</h3>
 
 <p><%=@profile.user.email%></p>
 
 <% prefilled = @profile.user.provider == "facebook" ?  true : false %>
 
 <%= simple_form_for(@profile) do |f| %>
-  <%= f.input :first_name, label: 'First name', input_html: {value: @profile.user.first_name }, readonly: prefilled, required: true%>
-  <%= f.input :last_name, label: 'Last name', input_html: {value: @profile.user.last_name }, readonly: prefilled%>
-  <%= f.input :dob, label: 'Date of birth', input_html: {value: @profile.user.first_name }, readonly: false%>
-  <%= f.input :gender, label: 'Gender', input_html: {value: @profile.user.first_name }, readonly: false%>
+  <%= f.input :first_name, label: 'First name', input_html: {value: @profile.user.first_name, class:"form_field" }, readonly: prefilled, required: true%>
+  <%= f.input :last_name, label: 'Last name', input_html: {value: @profile.user.last_name, class:"form_field" }, readonly: prefilled%>
+  <%= f.input :dob, label: 'Date of birth', input_html: {value: @profile.user.first_name, class:"form_field" }, readonly: false%>
+  <%= f.input :gender, label: 'Gender', input_html: {value: @profile.user.first_name, class:"form_field" }, readonly: false%>
   <%= f.submit %>
 <% end %>
