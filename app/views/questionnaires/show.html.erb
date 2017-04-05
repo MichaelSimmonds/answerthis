@@ -1,19 +1,29 @@
-<h1>Questionnaires#show</h1>
-<p>Find me in app/views/questionnaires/show.html.erb</p>
-<p>Title: <%= @questionnaire.title %></p>
-<p>Description: <%= @questionnaire.description %></p>
-<br>
-<% @prizes.each do |prize| %>
+<div class="choose-prize-div">
+  <h1>Questionnaires#show</h1>
+  <p>Find me in app/views/questionnaires/show.html.erb</p>
+  <p>Title: <%= @questionnaire.title %></p>
+  <p>Description: <%= @questionnaire.description %></p>
+  <br>
+  <% @prizes.each do |prize| %>
 
-  <button data-toggle="modal" data-target='#prize-<%= prize.id %>'>
-    <%= prize.title %>
-  </button>
+    <div id="prize-tings">
+      <button data-toggle="modal" data-target='#prize-<%= prize.id %>' class='btn btn-primary btn-md prize-btn'>
+        <%= prize.title %>
+      </button>
 
-  <div class="modal fade text-center prize-description-div" id="prize-<%= prize.id %>">
-    <h1 style="color: white;"><%= prize.description %></h1>
-    <button class="play-btn">Play for this prize</button>
-  </div>
+      <div class="modal fade text-center prize-description-div" id="prize-<%= prize.id %>">
+        <h1 style="color: white;"><%= prize.description %></h1>
+        <button class="btn btn-primary btn-md prize-select-btn">Play for this prize</button>
+      </div>
+    </div>
 
-<% end %>
-
+  <% end %>
+</div>
+<div class="hidden questionnaire-description-div">
+  <p><%= @questionnaire.description %><p>
+  <button class="btn btn-primary btn-md" id="play-btn">Let's play!</button>
+</div>
+<div class="question-1-div hidden">
+  <h1>Question 1</h1>
+</div>
 
