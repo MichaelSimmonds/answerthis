@@ -23,7 +23,30 @@
   <p><%= @questionnaire.description %><p>
   <button class="btn btn-primary btn-md" id="play-btn">Let's play!</button>
 </div>
-<div class="question-1-div hidden">
-  <h1>Question 1</h1>
+<div class="questions-div hidden">
+  <% @questions.each do |question| %>
+    <div class="question-<%= question.id %>-div">
+
+      <h1><%= question.title %></h1>
+      <h2><%= question.body %></h2>
+
+      <ul>
+        <% @answers.each do |answer| %>
+
+          <% if answer.question_id == question.id %>
+            <li>
+            <!-- <button class="btn btn-primary btn-md"><%= answer.body %></button> -->
+            <input type="radio" id="question-<%= question.id %>-answer-<%= answer.body %>" class="btn btn-primary btn-md"><label for="question-<%= question.id %>-answer-<%= answer.id %>"><%= answer.body %></label>
+            </li>
+          <% end %>
+
+        <% end %>
+      </ul>
+
+    </div>
+  <% end %>
+
+  <button class="submit-questionnaire-btn btn btn-primary btn-md">Submit questionnaire</button>
 </div>
+
 

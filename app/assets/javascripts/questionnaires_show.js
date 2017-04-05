@@ -10,8 +10,8 @@ $(document).ready(function(){
   });
 
   $('#play-btn').click(function(){
-    $('.questionnaire-description-div').addClass('hidden');
-    $('question-1-div').removeClass('hidden');
+    $('.questionnaire-description-div').hide();
+    $('.questions-div').removeClass('hidden');
   });
 
 
