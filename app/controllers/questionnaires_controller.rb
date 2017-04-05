@@ -1,5 +1,6 @@
 class QuestionnairesController < ApplicationController
   def index
+    @questionnaires = Questionnaire.all
   end
 
   def show
@@ -12,8 +13,19 @@ class QuestionnairesController < ApplicationController
   end
 
   def create
+    @questionnaire = Questionnaire.new(questionnaire_params)
+    @questionnaire.profile_id = current_profile.id
+    @questionnaire.save
+    redirect_to root_path
   end
 
   def client_show
+
+  end
+
+  private
+
+  def questionnaire_params
+    params.require(:questionnaire).permit(:title, :description)
   end
 end
