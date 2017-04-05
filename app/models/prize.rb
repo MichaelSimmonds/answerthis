@@ -1,3 +1,3 @@
 class Prize < ApplicationRecord
-  has_many :prize_pools
+  belongs_to :questionnaire
 end

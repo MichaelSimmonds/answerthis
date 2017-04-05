@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404150344) do
+ActiveRecord::Schema.define(version: 20170405125428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.string   "author_type"
+    t.integer  "author_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
@@ -21,15 +35,6 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
-  end
-
-  create_table "prize_pools", force: :cascade do |t|
-    t.integer  "questionnaire_id"
-    t.integer  "prize_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["prize_id"], name: "index_prize_pools_on_prize_id", using: :btree
-    t.index ["questionnaire_id"], name: "index_prize_pools_on_questionnaire_id", using: :btree
   end
 
   create_table "prizes", force: :cascade do |t|
@@ -40,8 +45,10 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.integer  "quantity_remaining"
     t.float    "win_probability"
     t.string   "voucher_code"
+    t.integer  "questionnaire_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["questionnaire_id"], name: "index_prizes_on_questionnaire_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -51,7 +58,6 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.string   "gender"
     t.integer  "is_client"
     t.string   "company_name"
-    t.string   "company_contact"
     t.text     "company_address"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
@@ -90,26 +96,28 @@ ActiveRecord::Schema.define(version: 20170404150344) do
   create_table "results", force: :cascade do |t|
     t.integer  "status"
     t.integer  "profile_id"
+    t.integer  "prize_id"
     t.integer  "questionnaire_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.index ["prize_id"], name: "index_results_on_prize_id", using: :btree
     t.index ["profile_id"], name: "index_results_on_profile_id", using: :btree
     t.index ["questionnaire_id"], name: "index_results_on_questionnaire_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
@@ -117,16 +125,17 @@ ActiveRecord::Schema.define(version: 20170404150344) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.boolean  "admin",                  default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "prize_pools", "prizes"
-  add_foreign_key "prize_pools", "questionnaires"
+  add_foreign_key "prizes", "questionnaires"
   add_foreign_key "profiles", "users"
   add_foreign_key "questionnaires", "profiles"
   add_foreign_key "questions", "questionnaires"
+  add_foreign_key "results", "prizes"
   add_foreign_key "results", "profiles"
   add_foreign_key "results", "questionnaires"
 end
