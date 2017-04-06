@@ -6,13 +6,15 @@ class PrizesController < ApplicationController
   end
 
   def new
+    @questionnaire = Questionnaire.find(params[:questionnaire_id])
     @prize = Prize.new
   end
 
   def create
     @prize = Prize.new(prize_params)
-    @prize.profile_id = current_profile.id
-    @prize.save
+    @prize.questionnaire_id = params[:questionnaire_id]
+    @prize.save!
+    redirect_to questionnaire_path(@prize.questionnaire.id)
   end
 
   def edit
