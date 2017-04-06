@@ -1,0 +1,30 @@
+<div class="questions-div hidden text-center">
+  <h3>List of questions and their answers</h3>
+  <ul id="questions-list">
+    <% @questions.each do |question| %>
+      <li>
+        <div id="question-<%= question.id %>-div" class="question-div text-center healthy-bottom-padding">
+
+          <h4><%= question.title %></h4>
+
+          <h5><%= question.body %></h5>
+
+          <ul id="answers-list">
+
+            <% @answers = Answer.where(question_id: question.id) %>
+            <% @answers.each do |answer| %>
+              <li>
+                <button class="btn btn-info btn-md"><%= answer.body %></button>
+              </li>
+            <% end %>
+
+          </ul>
+
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <button class="submit-questionnaire-btn btn btn-danger btn-md">Submit questionnaire</button>
+
+</div>

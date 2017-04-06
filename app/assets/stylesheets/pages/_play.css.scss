@@ -1,0 +1,24 @@
+#questions-list{
+  list-style-type: none;
+}
+
+.question-div{
+  border: 1px solid black;
+}
+#answers-list{
+  list-style-type: none;
+}
+.healthy-bottom-padding{
+  padding-bottom: 10px;
+}
+
+.spinner {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 50%;
+}

@@ -1,0 +1,20 @@
+<div class="choose-prize-div">
+  <h3>Choose prize</h3>
+  <p>Title: <%= @questionnaire.title %></p>
+  <p>Description: <%= @questionnaire.description %></p>
+  <br>
+  <% @prizes.each do |prize| %>
+
+    <div id="prize-tings">
+      <button data-toggle="modal" data-target='#prize-<%= prize.id %>' class='btn btn-primary btn-md prize-btn'>
+        <%= prize.title %>
+      </button>
+
+      <div class="modal fade text-center prize-description-div" id="prize-<%= prize.id %>">
+        <h1 style="color: white;"><%= prize.description %></h1>
+        <button class="btn btn-primary btn-md prize-select-btn">Play for this prize</button>
+      </div>
+    </div>
+
+  <% end %>
+</div>

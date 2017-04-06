@@ -11,7 +11,12 @@ $(document).ready(function(){
 
   $('#play-btn').click(function(){
     $('.questionnaire-description-div').addClass('hidden');
-    $('question-1-div').removeClass('hidden');
+    $('.questions-div').removeClass('hidden');
+  });
+
+  $('.submit-questionnaire-btn').click(function(){
+    $('.questions-div').addClass('hidden');
+    $('.spinner-div').removeClass('hidden');
   });
 
 

@@ -4,8 +4,6 @@ class QuestionnairesController < ApplicationController
   end
 
   def show
-    @questionnaire = Questionnaire.find(params[:id])
-    @prizes = Prize.where(questionnaire_id: @questionnaire.id)
   end
 
   def new
@@ -19,13 +17,15 @@ class QuestionnairesController < ApplicationController
     redirect_to new_questionnaire_question_path(@questionnaire.id)
   end
 
-  def client_show
-
-  end
+  def play
+    @questionnaire = Questionnaire.first
+    @prizes = Prize.where(questionnaire_id: @questionnaire.id)
+    @questions = Question.where(questionnaire_id: @questionnaire.id)
 
   private
 
   def questionnaire_params
     params.require(:questionnaire).permit(:title, :description)
+
   end
 end
