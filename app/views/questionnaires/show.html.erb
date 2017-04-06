@@ -1,17 +1,32 @@
 <p>#You are on the show view of questionnaires</p>
 <h1><%= @questionnaire.title%></h1>
 <p><%= @questionnaire.description%></p>
-
+<h2>questions</h2>
 <% @questionnaire.questions.each do |question| %>
-<%= question.title %>
-<br>
-<%= question.body %>
-<br>
-<% question.answers.each do |answer| %>
-<%= answer.body %>
+  <%= question.title %>
+  <br>
+  <%= question.body %>
+  <br>
+  <% question.answers.each do |answer| %>
+    <%= answer.body %>
+    <br>
+  <% end %>
 <br>
 <% end %>
+<h2>prizes</h2>
+<% @questionnaire.prizes.each_with_index do |prize, index| %>
+  <%=index+1%>.
+  <%= prize.title %>
+  <br>
+  <%= prize.description %>
+  value = <%= prize.value %>
+  <br>
 <br>
 <% end %>
+
+
+
 <br>
 <%= link_to "Edit questionnaire", edit_questionnaire_path(@questionnaire), class: "btn btn-primary" %>
+<br>
+<%= link_to "Add prizes", new_questionnaire_prize_path(@questionnaire), class: "btn btn-primary" %>

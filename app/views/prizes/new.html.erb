@@ -1,2 +1,15 @@
 <h1>Prizes#new</h1>
 <p>Find me in app/views/prizes/new.html.erb</p>
+
+<%= simple_form_for [@questionnaire, @prize] do |f| %>
+
+<%= f.input :questionnaire_id, as: :hidden%>
+<%= f.input :title, label: 'Title', class: "form_field", placeholder: "Greate question", required: true %>
+<%= f.input :description, label: 'Description', class: "form_field", placeholder: "Prize Description", required: true %>
+<%= f.input :image_url, label: 'image url', class: "form_field", value: "http://www.placehold.it/300/300", required: true %>
+<%= f.input :value, label: 'cost', class: "form_field", placeholder: 20, required: true %>
+<%= f.input :quantity_remaining, label: 'quantity', class: "form_field", placeholder: 2, required: true %>
+<%= f.input :win_probability, label: 'win probability', class: "form_field", placeholder: 0.2, required: true %>
+<%= f.input :voucher_code, label: 'voucer', class: "form_field", placeholder: "Voucher Code", required: true %>
+<%= f.submit %>
+<% end %>
