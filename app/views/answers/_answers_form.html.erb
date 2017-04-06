@@ -1,0 +1,15 @@
+<h1>Current question: <%= @question.body %></h1>
+<%= simple_form_for [@question, @answer] do |f| %>
+
+  <%= f.input :body, label: 'Answer', class: "form_field", placeholder: "blabla", required: true %>
+
+<%= f.submit %>
+<% end %>
+
+<% @question.answers.order(created_at: :desc).each do |answer| %>
+  <pre>
+    <%= answer.to_json %>
+  </pre>
+  <%= link_to 'Destroy', question_answer_path(@question, answer),
+            data: {confirm: 'Are you sure?'}, method: :delete %>
+<% end %>
