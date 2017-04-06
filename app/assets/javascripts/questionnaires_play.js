@@ -19,5 +19,10 @@ $(document).ready(function(){
     $('.spinner-div').removeClass('hidden');
   });
 
+  $('#spin-btn').click(function(){
+    $('.spinner-div').addClass('hidden');
+    $('.spin-result-div').removeClass('hidden');
+  });
+
 
 });

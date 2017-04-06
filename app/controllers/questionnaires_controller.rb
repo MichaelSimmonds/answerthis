@@ -18,9 +18,10 @@ class QuestionnairesController < ApplicationController
   end
 
   def play
-    @questionnaire = Questionnaire.first
+    @questionnaire = Questionnaire.first # should be the @random_questionnaire from the pages#home
     @prizes = Prize.where(questionnaire_id: @questionnaire.id)
     @questions = Question.where(questionnaire_id: @questionnaire.id)
+  end
 
   private
 
