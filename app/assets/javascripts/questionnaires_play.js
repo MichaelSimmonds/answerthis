@@ -10,8 +10,13 @@ $(document).ready(function(){
   });
 
   $('#play-btn').click(function(){
-    $('.questionnaire-description-div').hide();
+    $('.questionnaire-description-div').addClass('hidden');
     $('.questions-div').removeClass('hidden');
+  });
+
+  $('.submit-questionnaire-btn').click(function(){
+    $('.questions-div').addClass('hidden');
+    $('.spinner-div').removeClass('hidden');
   });
 
 

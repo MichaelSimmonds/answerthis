@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :profiles, except: [ :destroy ]
 # __________________________________________________________________
 
+  get 'play', to: 'questionnaires#play'
+
+
    resources :questionnaires, only: [ :index, :show, :new, :create ] do
     resources :questions
   end
@@ -37,9 +40,6 @@ Rails.application.routes.draw do
 #     end
 #   end
 
-# __________________________________________________________________
-
-  get 'client_show', to: 'questionnaires#client_show'
 # __________________________________________________________________
 
   resources :responses, except: [ :edit, :update, :destroy ]

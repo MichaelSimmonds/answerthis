@@ -3,10 +3,6 @@ class QuestionnairesController < ApplicationController
   end
 
   def show
-    @questionnaire = Questionnaire.first
-    @prizes = Prize.where(questionnaire_id: @questionnaire.id)
-    @questions = Question.where(questionnaire_id: @questionnaire.id)
-    @answers = Answer.all
   end
 
   def new
@@ -16,6 +12,9 @@ class QuestionnairesController < ApplicationController
   def create
   end
 
-  def client_show
+  def play
+    @questionnaire = Questionnaire.first
+    @prizes = Prize.where(questionnaire_id: @questionnaire.id)
+    @questions = Question.where(questionnaire_id: @questionnaire.id)
   end
 end
