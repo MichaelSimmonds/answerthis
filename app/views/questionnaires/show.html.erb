@@ -2,26 +2,26 @@
 <h1><%= @questionnaire.title%></h1>
 <p><%= @questionnaire.description%></p>
 <h2>questions</h2>
-<% @questionnaire.questions.each do |question| %>
-  <%= question.title %>
-  <br>
-  <%= question.body %>
-  <br>
-  <% question.answers.each do |answer| %>
-    <%= answer.body %>
-    <br>
+<% @questionnaire.questions.each_with_index do |question, index| %>
+<h2><%=index+1%>.<%= question.title %></h2>
+<p><%= question.body %></p>
+<h4>answers</h4>
+<ol>
+  <% question.answers.each_with_index do |answer| %>
+    <li><%= answer.body %></li>
   <% end %>
-<br>
+</ol>
 <% end %>
-<h2>prizes</h2>
+<h3>prizes</h3>
 <% @questionnaire.prizes.each_with_index do |prize, index| %>
-  <%=index+1%>.
-  <%= prize.title %>
-  <br>
-  <%= prize.description %>
-  value = <%= prize.value %>
-  <br>
-<br>
+  <h2><%=index+1%>.<%= prize.title %></h2>
+  <p><%= prize.description %></p>
+  <ul>
+    <li>prize value:<%= prize.value %></li>
+    <li>quantity_remaining:<%= prize.quantity_remaining %></li>
+    <li>win_probability:<%= prize.win_probability %></li>
+    <li>voucher_code:<%= prize.voucher_code %></li>
+  </ul>
 <% end %>
 
 
