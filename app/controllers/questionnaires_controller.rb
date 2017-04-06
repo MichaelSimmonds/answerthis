@@ -4,6 +4,7 @@ class QuestionnairesController < ApplicationController
   end
 
   def show
+    @questionnaire = Questionnaire.find(params[:id])
   end
 
   def new
@@ -17,6 +18,18 @@ class QuestionnairesController < ApplicationController
     redirect_to new_questionnaire_question_path(@questionnaire.id)
   end
 
+  def edit
+
+  end
+
+  def update
+    @questionnaire.title = questionnaire_params[:title]
+    @questionnaire.body = questionnaire_params[:body]
+    @questionnaire.save!
+    flash[:notice] = "Updated questionnaire"
+    redirect_to new_questionnaire_question_path(@questionnaire.id)
+  end
+
   def play
     @questionnaire = Questionnaire.first # should be the @random_questionnaire from the pages#home
     @prizes = Prize.where(questionnaire_id: @questionnaire.id)
@@ -26,7 +39,7 @@ class QuestionnairesController < ApplicationController
   private
 
   def questionnaire_params
-    params.require(:questionnaire).permit(:title, :description)
+    params.require(:questionnaire).permit(:title, :description, :profile_id)
 
   end
 end
