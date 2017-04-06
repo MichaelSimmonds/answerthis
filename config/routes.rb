@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
    resources :questionnaires, only: [ :index, :show, :new, :create ] do
     resources :questions
+    resources :prizes
+
   end
 
   resources :questions, only: [:show] do
