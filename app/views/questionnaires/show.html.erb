@@ -1,1 +1,17 @@
+<p>#You are on the show view of questionnaires</p>
+<h1><%= @questionnaire.title%></h1>
+<p><%= @questionnaire.description%></p>
 
+<% @questionnaire.questions.each do |question| %>
+<%= question.title %>
+<br>
+<%= question.body %>
+<br>
+<% question.answers.each do |answer| %>
+<%= answer.body %>
+<br>
+<% end %>
+<br>
+<% end %>
+<br>
+<%= link_to "Edit questionnaire", edit_questionnaire_path(@questionnaire), class: "btn btn-primary" %>
