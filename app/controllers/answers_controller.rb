@@ -2,10 +2,12 @@ class AnswersController < ApplicationController
   before_action :set_question, only: [:new, :destroy, :create]
 
   def index
+    # @questionnaire = Answer.find(params[:questionnaire_id]).question.questionnaire
     @answer = Answer.find(params[:answer_id])
   end
 
   def new
+    @question = Question.find(params[:question_id])
     @answer = Answer.new
   end
 
