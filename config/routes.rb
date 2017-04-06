@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'play', to: 'questionnaires#play'
 
 
-   resources :questionnaires, only: [ :index, :show, :new, :create ] do
+   resources :questionnaires, except: [ :destroy ] do
     resources :questions
     resources :prizes
 

@@ -1,7 +1,7 @@
 
 
 <%= simple_form_for [@questionnaire, @question] do |f| %>
-<%= f.input :title, label: 'Title', class: "form_field", value: "Mickey", required: true %>
-<%= f.input :body, label: 'Description', class: "form_field", required: true %>
+<%= f.input :title, label: 'Title', class: "form_field", placeholder: "Greate question", required: true %>
+<%= f.input :body, label: 'Description', class: "form_field", placeholder: "Here goes your actuale question", required: true %>
 <%= f.submit %>
 <% end %>
