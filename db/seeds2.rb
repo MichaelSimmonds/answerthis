@@ -25,6 +25,7 @@ User.delete_all
 first_name = Faker::Name.first_name
 last_name = Faker::Name.last_name
 dob = Faker::Date.birthday(16, 46)
+# gender = rand()
 
 client_a = {
   user:{
