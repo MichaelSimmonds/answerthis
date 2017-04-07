@@ -13,17 +13,25 @@ Rails.application.routes.draw do
   resources :profiles, except: [ :destroy ]
 # __________________________________________________________________
 
-  get 'play', to: 'questionnaires#play'
+  get 'play/:questionnaire_id', to: 'questionnaires#play', as: :play
+
+
+  get 'random_questionnaire', to: 'questionnaires#random_questionnaire_for_user', as: :random_questionnaire
+
 
 
    resources :questionnaires, only: [ :index, :show, :new, :create ] do
     resources :questions
-  end
+    resources :results, only: [ :new, :create, :edit, :update ]
+   end
 
   resources :questions, only: [:show] do
-    resources :answers
+    resources :answers, except: [ :show ]
   end
 
+  resources :answers, only: [ :show ] do
+    resources :responses, except: [ :edit, :update, :destroy ]
+  end
 #   resources :questionnaires, only: [ :index, :show, :new, :create ] do
 #     resources :results, only: [ :new, :create ]
 #     resources :prizes, only: [ :index, :show ]
@@ -42,7 +50,6 @@ Rails.application.routes.draw do
 
 # __________________________________________________________________
 
-  resources :responses, except: [ :edit, :update, :destroy ]
 # __________________________________________________________________
 
 end
