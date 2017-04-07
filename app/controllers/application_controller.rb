@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   attr_reader :current_profile
 
   def current_profile
-    current_user.profile
+    if current_user
+      current_user.profile
+    end
   end
 
   def after_sign_in_path_for(resource)
