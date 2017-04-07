@@ -1,10 +1,23 @@
-<h1><%=current_profile.first_name%></h1>
+<h1>Hi <%=current_profile.first_name%>, welcome to your profile!</h1>
 
 
 <% if current_profile.is_client == 1 %>
 <h2>You are a client!</h2>
+<p>Company name: <%=current_profile.company_name%></p>
+<p>Company address: <%=current_profile.company_address%></p>
 <% else %>
-<h2>You are a Enduser</h2>
+<h2>You are a Enduser!</h2>
+<% end %>
+<br>
+<p>First Name: <%=current_profile.first_name%></p>
+<p>Last Name: <%=current_profile.last_name%></p>
+<p>Date of birth: <%=current_profile.dob%></p>
+<p>Gender: <%=current_profile.gender%></p>
+<br>
+
+
+<% if @profile.questionnaires %>
+<p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
 <% end %>
 
 <%= link_to "Back home", root_path, class: "btn btn-primary" %>
