@@ -18,6 +18,8 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 
+gem 'faker', '~> 1.6', '>= 1.6.3'
+
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 

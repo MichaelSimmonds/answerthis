@@ -22,112 +22,18 @@ Profile.delete_all
 User.delete_all
 
 
-first_name = Faker::Name.first_name
-last_name = Faker::Name.last_name
-dob = Faker::Date.birthday(16, 46)
 
-client_a = {
-  user:{
-    email: "#{first_name}@gmail.com",
-    password: "#{first_name}@gmailcom",
-    password_confirmation: "#{first_name}@gmail.com",
-    admin: true
-  },
-  profile:{
-    first_name: "#{first_name}",
-    last_name: "#{last_name}",
-    dob: "#{dob}",
-    gender: "male",
-    is_client: 1,
-    company_name: "BMW",
-    company_address:"Jekerstraat 55, Amsterdam",
-    user_id: user
-  },
-  questionnaire:{
-    title: "market research BMW",
-    description: "This questionnaire is about your preference as a potential car owner.",
-    profile_id: profile_1.id
-  },
-  question:{
-    title: "Color",
-    body: "What color would you like your first car to have?", questionnaire_id: questionnaire_1.id
-  },
-  answer:{
-    body: "answer A",
-    question_id: question_1.id
-  },
-  prize:{
-    title: "Smart watch",
-    description: "Really nice gadget, something you probably won't buy yourself but is really cool to have!",
-    image_url: "http://cdn.macworld.co.uk/cmsdata/slideshow/3512394/apple_watch_thumb800.jpg",
-    value: 100,
-    quantity_remaining: 20,
-    win_probability: 0.3,
-    voucher_code: "HD2383GSO1",
-    questionnaire_id: questionnaire_1.id
-  }
-}
 
-end_user = {
-  response_1:{
-    content: "A",
-    answer_id: answer_1.id,
-    profile_id: profile_1.id
-  },
-  response_2:{
-    content: "C",
-    answer_id: answer_1.id,
-    profile_id: profile_1.id
-  },
-  response_3:{
-    content: "A",
-    answer_id: answer_3.id,
-    profile_id: profile_2.id
-  },
-  response_4:{
-    content: "This is a terrible question, of course I want to own a BMW but I can't afford it!",
-    answer_id: 4,
-    profile_id: profile_2.id
-  }
-}
+
 # end
 
 # User.all.pluck(:id).sample
 
-client_list.each do |k, v|
 
-end
-#create client
-user = User.create!(client_a.user)
-profile = Profile.create!(client_a.profile)
-profile.user_id = user.id
-questionnaire = Questionnaire.create!(client_a.questionnaire)
-questionnaire.profile_id = profile.id
-question = Question.create!(client_a.questionnaire)
-question.questionnaire_id = questionnaire.id
-4*
-answer = Answer.create!(client_a.answer)
-answer.question_id = question.id
-4*
-prize = Prize.create!(client_a.prize)
-prize.questionnaire_id = questionnaire.id
-
-
-user = User.create!(client.user)
-profile = Profile.create!(client.profile)
-questionnaire = Questionnaire.create!(client.questionnaire)
-
-question = Question.create!(client.questionnaire)
-answer = Answer.create!(client.answer)
-
-prize = Prize.create!(client.prize)
-
-
-
+user_1 = User.create!(email: "ben@gmail.com", password: "ben@gmail.com", password_confirmation: "ben@gmail.com", admin:true)
 user_2 = User.create!(email: "lucas@gmail.com", password: "lucas@gmail.com", password_confirmation: "lucas@gmail.com")
 
 profile_1 = Profile.create!(first_name: "Ben", last_name: "Peterson", dob: Date.new(1999, 2, 21), gender: "Male", is_client: 1, company_name: "BMW", company_address: "Jekerstraat 55, Amsterdam", user_id: user_1.id)
-profile_1 = Profile.create!(first_name: "Ben", last_name: "Peterson", dob: Date.new(1999, 2, 21), gender: "Male", is_client: 1, company_name: "BMW", companyddress: "Jekerstraat 55, Amsterdam", user_id: user_1.id)
 
 profile_2 = Profile.create!(first_name: "Luca", last_name: "Roma", dob: Date.new(1959, 11, 21), gender: "Male", is_client: 0, company_name: "", company_address: "", user_id: user_2.id)
 
