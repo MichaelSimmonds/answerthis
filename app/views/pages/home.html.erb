@@ -1,7 +1,6 @@
 
 <% if current_user %>
 <h1>Hi there <%=current_user.profile.first_name%></h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 <% end %>
 
 
@@ -18,7 +17,7 @@
 <% if current_profile.is_client == 1 %>
 <%= link_to "Create new questionnaire", new_questionnaire_path, class: "btn btn-primary" %>
 <br>
-<%= link_to "Show all Questionnairs", questionnaires_path, class: "btn btn-primary" %>
+<%= link_to "Show all my Questionnairs", questionnaires_path, class: "btn btn-primary" %>
 <% end %>
 <% end %>
 <br>

@@ -1,10 +1,9 @@
 <h1>Questionnaires#index</h1>
 <p>Find me in app/views/questionnaires/index.html.erb</p>
 
-<% @questionnaires.each do |q| %>
-<%= q.title %>
-<%= q.description %>
-<br>
+<% current_profile.questionnaires.each do |questionnaire| %>
+<%= link_to questionnaire.title, questionnaire_path(questionnaire) %>
 <% end %>
 
-<%= link_to "Go back", profile_path(current_profile.id) %>
+<br>
+<%= link_to "Go back", profile_path(current_profile.id), class: "btn btn-primary" %>
