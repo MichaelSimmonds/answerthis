@@ -14,6 +14,10 @@
             data: {confirm: 'Are you sure?'}, method: :delete %>
 <% end %>
 
-<%= link_to "Next question", new_questionnaire_question_path(@question.questionnaire), class: "btn btn-primary" %>
+<% if @over_limit %>
+  <%flash[:alert] = "You have too many answer to continue" %>
+<%end%>
 
-<%= link_to "Show Questionnaire", questionnaire_path(@question.questionnaire), class: "btn btn-primary" %>
+  <%= link_to_unless(@question.answers.length > 4, "Next question", new_questionnaire_question_path(@question.questionnaire), class: "btn btn-primary") %>
+
+<%= link_to_unless(@question.answers.length > 4, "Show Questionnaire", questionnaire_path(@question.questionnaire), class: "btn btn-primary") %>
