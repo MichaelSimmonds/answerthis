@@ -1,0 +1,3 @@
+<h1><%= @questionnaire.title%></h1>
+<p><%= @questionnaire.description%></p>
+<%= link_to "Lets Play!", new_question_response_path(params[:question_id]) %>

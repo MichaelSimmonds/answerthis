@@ -30,10 +30,11 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:show] do
     resources :answers, except: [ :show ]
+    resources :responses
+    get 'intro', to: 'responses#intro'
   end
 
   resources :answers, only: [ :show ] do
-    resources :responses, except: [ :edit, :update, :destroy ]
   end
 #   resources :questionnaires, only: [ :index, :show, :new, :create ] do
 #     resources :results, only: [ :new, :create ]

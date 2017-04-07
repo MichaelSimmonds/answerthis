@@ -17,7 +17,10 @@ class ResultsController < ApplicationController
     @result.profile_id = current_profile.id
     # @result = Result.find(params[:result_id])
     @result.save!
-    redirect_to root_path
+
+    filthy_var = Questionnaire.find(params[:questionnaire_id]).questions.first.id
+
+    redirect_to question_intro_path(filthy_var)
 
 
     # (questionnaire_id: @questionnaire.id, profile_id: current_profile.id)
