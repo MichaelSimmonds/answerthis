@@ -12,7 +12,7 @@ class ResponsesController < ApplicationController
   def new
     # @answers = Answer.find(params[:answer_id])
     @question = Question.find(params[:question_id])
-    @answers = Question.all.where(id:@question.id)
+    @answers = Answer.where("question_id = #{@question.id}")
   end
 
   def create
