@@ -1,14 +1,17 @@
 
-<h1>Pages#home</h1>
+<h1>Hi there <%=current_user.profile.first_name%></h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
+
+
 <% if current_user %>
-<%= link_to "show my profile", profile_path(current_profile) %>
+<%= link_to "show my profile", profile_path(current_profile), class: "btn btn-primary" %>
 <% end %>
 
+
 <br>
-<%= link_to "How it works", profiles_path(current_user) %>
+<%= link_to "How it works", profiles_path(current_user), class: "btn btn-primary"%>
 <br>
-<%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "Message" %>
+<%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "Message", class: "btn btn-primary"%>
 <br>
-<%= link_to "Go to a questionnaire", play_path(@random_questionnaire.id) %>
+<%= link_to "Go to a questionnaire", play_path(@random_questionnaire.id), class: "btn btn-primary" %>
