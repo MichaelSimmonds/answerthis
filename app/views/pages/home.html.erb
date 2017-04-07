@@ -25,6 +25,7 @@
 <%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "btn btn-primary" %>
 <br>
 
+
 <h3>User story:</h3>
 
-<!-- <%= link_to "Go to a questionnaire", play_path(@random_questionnaire.id), class: "btn btn-primary" %> -->
+<%= link_to "Go to a questionnaire", new_questionnaire_result_path(Questionnaire.last.id) %>
