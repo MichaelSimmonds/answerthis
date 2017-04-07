@@ -3,4 +3,6 @@
 <%= link_to "Create new survey", profile_path %>
 <%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "Message" %>
 
-<!-- <%= link_to "Go to a questionnaire", play_path(@random_questionnaire.id), class: "btn btn-primary" %> -->
+<%= link_to "How it works", profiles_path(current_user), class: "btn btn-primary"%>
+<!-- needs to be moved to normal home page -->
+

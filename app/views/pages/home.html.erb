@@ -1,6 +1,6 @@
 
 <% if current_user %>
-<h1>Hi there <%=current_user.profile.first_name%></h1>
+<h1>Hi there <%=current_user.profile.first_name%>, how you doing...?</h1>
 <% end %>
 
 
@@ -17,17 +17,12 @@
 <% if current_profile.is_client == 1 %>
 <%= link_to "Create new questionnaire", new_questionnaire_path, class: "btn btn-primary" %>
 <br>
-<%= link_to "Show all my Questionnairs", questionnaires_path, class: "btn btn-primary" %>
+<%= link_to "Show all Questionnairs", questionnaires_path, class: "btn btn-primary" %>
 <% end %>
 <% end %>
-<br>
-
 
 <br>
-<%= link_to "How it works", profiles_path(current_user), class: "btn btn-primary"%>
-
-<br>
-<%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "Message", class: "btn btn-primary"%>
+<%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "btn btn-primary" %>
 <br>
 
 

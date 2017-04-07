@@ -15,9 +15,9 @@
 <% end %>
 
 <% if @over_limit %>
-  <%flash[:alert] = "You have too many answer to continue" %>
+  <%flash[:alert] = "There can only be 4 answers to a question..." %>
 <%end%>
 
-  <%= link_to_unless(@question.answers.length > 4, "Next question", new_questionnaire_question_path(@question.questionnaire), class: "btn btn-primary") %>
+  <%= link_to_unless(@question.answers.length >= 4, "Next question", new_questionnaire_question_path(@question.questionnaire), class: "btn btn-primary") %>
 
-<%= link_to_unless(@question.answers.length > 4, "Show Questionnaire", questionnaire_path(@question.questionnaire), class: "btn btn-primary") %>
+<%= link_to_unless(@question.answers.length >= 4, "Show Questionnaire", questionnaire_path(@question.questionnaire), class: "btn btn-primary") %>
