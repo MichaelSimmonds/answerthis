@@ -9,6 +9,7 @@ class AnswersController < ApplicationController
   def new
     @question = Question.find(params[:question_id])
     @answer = Answer.new
+    @over_limit = @question.answers.length > 4 ? true : false
   end
 
   def create
