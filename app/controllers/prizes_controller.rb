@@ -8,7 +8,7 @@ class PrizesController < ApplicationController
   def new
     @questionnaire = Questionnaire.find(params[:questionnaire_id])
     @prize = Prize.new
-    if @questionnaire.prizes.length > 4
+    if @questionnaire.prizes.length > 3
       flash[:alert] = "You can only add 4 prizes"
       redirect_to questionnaire_path(params[:questionnaire_id])
     end
