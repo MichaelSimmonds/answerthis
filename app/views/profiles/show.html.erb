@@ -2,9 +2,9 @@
 <p>Find me in app/views/profiles/show.html.erb</p>
 <h1><%=current_profile.first_name%></h1>
 
-<%= current_profile.is_client %>
+
 <% if current_profile.is_client == 1 %>
-<%= link_to "Create new questionnaire", new_questionnaire_path %>
-<br>
-<%= link_to "Show all Questionnairs", questionnaires_path %>
+<h2>You are a client!</h2>
+<% else %>
+<h2>You are a Enduser</h2>
 <% end %>
