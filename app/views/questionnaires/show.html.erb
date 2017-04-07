@@ -1,6 +1,7 @@
 <p>#You are on the show view of questionnaires</p>
 <h1><%= @questionnaire.title%></h1>
 <p><%= @questionnaire.description%></p>
+
 <h2>questions</h2>
 <% @questionnaire.questions.each_with_index do |question, index| %>
 <h2><%=index+1%>.<%= question.title %></h2>
@@ -12,6 +13,7 @@
   <% end %>
 </ol>
 <% end %>
+
 <h3>prizes</h3>
 <% @questionnaire.prizes.each_with_index do |prize, index| %>
   <h2><%=index+1%>.<%= prize.title %></h2>
@@ -30,3 +32,5 @@
 <%= link_to "Edit questionnaire", edit_questionnaire_path(@questionnaire), class: "btn btn-primary" %>
 <br>
 <%= link_to "Add prizes", new_questionnaire_prize_path(@questionnaire), class: "btn btn-primary" %>
+<br>
+<%= link_to "All questionnaires", questionnaires_path(@questionnaire), class: "btn btn-primary" %>
