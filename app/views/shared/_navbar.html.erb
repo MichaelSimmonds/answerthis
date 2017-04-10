@@ -45,9 +45,9 @@
     <!-- Button (call-to-action) -->
     <% if current_user %>
     <% if current_profile.is_client == 1 %>
-    <%= link_to t(".top_call_to_action", default: "Create Questionnaire"), new_questionnaire_path, class: "navbar-wagon-button btn btn-primary" %>
+    <%= link_to t(".top_call_to_action", default: "Create Questionnaire"), new_questionnaire_path, class: "navbar-wagon-button" %>
     <% else %>
-    <%= link_to t(".top_call_to_action", default: "Take questionnaire!"), root_path, class: "navbar-wagon-button btn btn-primary" %>
+    <%= link_to t(".top_call_to_action", default: "Take questionnaire!"), root_path, class: "navbar-wagon-button" %>
 
     <% end %>
     <% end %>
