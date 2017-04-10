@@ -1,31 +1,29 @@
+<div class="text-center theme">
+  <% if current_user %>
+  <h1>Hi there <%=current_user.profile.first_name%>, how you doing...?</h1>
+  <% end %>
 
-<% if current_user %>
-<h1>Hi there <%=current_user.profile.first_name%>, how you doing...?</h1>
-<% end %>
+  <hr>
 
+  <% if current_user && current_profile.is_client == 1 %>
+  <%= render "home_clients"%>
+  <% end %>
 
-<h3>Any user story:</h3>
+  <hr>
 
-<% if current_user %>
-<%= link_to "show my profile", profile_path(current_profile), class: "btn btn-primary" %>
-<% end %>
-<br>
+  <% if current_user && current_profile.is_client != 1 %>
+    <%= render "home_end_user" %>
+  <% end %>
 
+  <hr>
 
-<h3>Client story:</h3>
-<% if current_user %>
-<% if current_profile.is_client == 1 %>
-<%= link_to "Create new questionnaire", new_questionnaire_path, class: "btn btn-primary" %>
-<br>
-<%= link_to "Show all Questionnairs", questionnaires_path, class: "btn btn-primary" %>
-<% end %>
-<% end %>
-
-<br>
-<%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "btn btn-primary" %>
-<br>
+  <% if !current_user %>
+  <%= render "home_for_public" %>
+  <% end %>
 
 
-<h3>User story:</h3>
 
-<%= link_to "Go to a questionnaire", new_questionnaire_result_path(Questionnaire.last.id) %>
+
+  <%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "start-btn" %>
+
+</div>

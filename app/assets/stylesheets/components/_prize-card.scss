@@ -1,0 +1,47 @@
+.prizes-div{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.prize-div{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.prize-btn{
+  height: 200px;
+  width: 200px;
+  background-image: url('https://www.placecage.com/c/200/300');
+  background-size: cover !important;
+  border-radius: 4px;
+  border: 2.5px solid rgba(0,0,0,0);
+  color: rgba(0,0,0,0);
+  background-color: $main-purple;
+  opacity: 1;
+  filter: alpha(opacity=50);
+  transition: opacity 0.5s, border 0.5s, color 0.5s, background-color 0.5s;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  // font-size: 50%;
+}
+
+
+.prize-btn:hover{
+  opacity: 0.7;
+  border: 2.5px solid $accent-orange;
+  color: $background-blue;
+}
+
+
+
+
+
+

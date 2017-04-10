@@ -1,9 +1,14 @@
-<h1>Questionnaires#new</h1>
-<p>Find me in app/views/questionnaires/new.html.erb</p>
+<div class="theme text-center">
 
-<%= simple_form_for @questionnaire do |f| %>
-  <%= f.input :title, label: 'Title', class: "form_field", required: true %>
-  <%= f.input :description, label: 'Description', class: "form_field", required: true %>
-<%= f.submit%>
-<% end %>
-<%= link_to "Back home", root_path, class: "btn btn-primary" %>
+  <h1>Questionnaires#new</h1>
+  <p>Find me in app/views/questionnaires/new.html.erb</p>
+
+  <%= simple_form_for @questionnaire do |f| %>
+    <%= f.input :title, label: 'Title', class: "form_field", required: true %>
+    <%= f.input :description, label: 'Description', class: "form_field", required: true %>
+    <%= f.submit class: 'start-btn' %>
+  <% end %>
+  <br>
+  <%= link_to "Back home", root_path, class: "start-btn" %>
+
+</div>
