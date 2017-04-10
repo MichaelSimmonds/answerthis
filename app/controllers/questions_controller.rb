@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   def new
     @questionnaire = Questionnaire.find(params[:questionnaire_id])
     @question = Question.new
-    byebug
+    
   end
 
   def create
