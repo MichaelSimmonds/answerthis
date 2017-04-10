@@ -1,4 +1,4 @@
-<div class="text-center prize-description-div"">
+<div class="text-center prize-description-div theme">
 
   <h3>Choose prize</h3>
   <p>Title: <%= @questionnaire.title %></p>
@@ -9,13 +9,11 @@
   <div class="prizes-div">
     <% @prizes.each do |prize| %>
       <div class='prize-div'>
-        <div class="prize-layer">
           <% selected_prize = prize.id%>
           <%= simple_form_for [@questionnaire, @result] do |f|  %>
             <%= f.hidden_field :result, value: selected_prize %>
             <%= f.submit prize.title, { class: "prize-btn" } %>
           <% end %>
-        </div>
       </div>
     <% end %>
   </div>

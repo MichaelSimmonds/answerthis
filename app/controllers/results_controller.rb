@@ -27,7 +27,6 @@ class ResultsController < ApplicationController
     @result = Result.find(params[:id])
     @result.status = 1
     @result.save!
-
   end
 
   def update
