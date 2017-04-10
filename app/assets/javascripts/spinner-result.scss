@@ -1,0 +1,14 @@
+
+.modal-dialog {
+    margin: 40% auto 0 auto;
+}
+.result{
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  color: #000;
+  display:none;
+  &.show{
+    display:block;
+  }
+}
