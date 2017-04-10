@@ -22,7 +22,14 @@
   color: $accent-orange;
   background-color: $accent-orange;
 }
-
+.orange-line-full{
+  border: 0;
+  width: 100%;
+  margin: 0 auto;
+  height: 1px;
+  color: $accent-orange;
+  background-color: $accent-orange;
+}
 .small-purp-line{
   border: 0;
   width: 40%;

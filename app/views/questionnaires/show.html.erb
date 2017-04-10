@@ -1,6 +1,6 @@
 <div class="text-center theme">
 
-  <hr class="orange-line">
+  <hr class="orange-line-full">
 
   <h1><%= @questionnaire.title%></h1>
   <p class="lighter-text"><%= @questionnaire.description%></p>
@@ -21,7 +21,6 @@
 
           <% question.answers.each_with_index do |answer| %>
             <li><%= answer.body %></li>
-            <li>another answer</li>
           <% end %>
 
         </ul>
