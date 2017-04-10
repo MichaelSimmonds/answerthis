@@ -21,22 +21,16 @@ class ResultsController < ApplicationController
     filthy_var = Questionnaire.find(params[:questionnaire_id]).questions.first.id
 
     redirect_to question_intro_path(filthy_var)
-
-
-    # (questionnaire_id: @questionnaire.id, profile_id: current_profile.id)
-    # redirect_to play_path(params[:questionnaire_id])
   end
 
   def edit
-    # @questionnaire = Questionnaire.find(params[:questionnaire_id])
-    # @result = Result.find(params[:id])
-    # @result.prize_id = result_params.prize_id
-    # POTENTIALLY USEFUL COMMENT: edit_questionnaire_result_path(@questionnaire.id, @result.id)
+    @result = Result.find(params[:id])
+    @result.status = 1
+    @result.save!
+
   end
 
   def update
-    # @result = Result.find(params[:id])
-    # @result.prize_id = params[:prize_id]
     # @result.save!
   end
 

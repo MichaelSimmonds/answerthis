@@ -1,7 +1,11 @@
 <h2><%=@question.title %></h2>
 <p><%=@question.body %></p>
-<ul>
+
   <%@answers.each do |answer|%>
-    <li><%answer%></li>
+
+    <% selected_answer = answer.id%>
+    <%= simple_form_for [@questionnaire, @question, @response] do |f|  %>
+      <%= f.hidden_field :response, value: selected_answer %>
+      <%= f.submit answer.body, class: "btn btn-primary btn-md prize-btn" %>
   <%end%>
-</ul>
+  <%end%>

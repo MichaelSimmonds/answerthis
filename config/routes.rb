@@ -22,15 +22,18 @@ Rails.application.routes.draw do
 
 
    resources :questionnaires, only: [ :index, :show, :new, :create ] do
-    resources :questions
+    resources :questions do
+      resources :responses, only: [:new, :create]
+    end
     resources :results, only: [ :new, :create, :edit, :update ]
     resources :prizes
+
 
    end
 
   resources :questions, only: [:show] do
     resources :answers, except: [ :show ]
-    resources :responses
+    resources :responses, except: [:new, :create]
     get 'intro', to: 'responses#intro'
   end
 

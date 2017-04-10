@@ -11,7 +11,7 @@
       <% selected_prize = prize.id%>
       <%= simple_form_for [@questionnaire, @result] do |f|  %>
         <%= f.hidden_field :result, value: selected_prize %>
-        <%= f.submit prize.id, class: "btn btn-primary btn-md prize-btn" %>
+        <%= f.submit prize.title, class: "btn btn-primary btn-md prize-btn" %>
       <% end %>
 
     </div>
