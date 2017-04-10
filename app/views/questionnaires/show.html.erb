@@ -1,6 +1,6 @@
 <div class="text-center theme">
 
-  <hr class="orange-line">
+  <hr class="orange-line-full">
 
   <h1><%= @questionnaire.title%></h1>
   <p class="lighter-text"><%= @questionnaire.description%></p>
@@ -12,6 +12,7 @@
   <div class="questions-div">
     <% question_number = 0 %>
     <% @questionnaire.questions.each_with_index do |question, index| %>
+
     <% question_number += 1 %>
     <% question_number.to_s %>
     <div class="question-card">

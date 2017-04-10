@@ -18,9 +18,10 @@
   <br>
 
 
-  <% if @profile.questionnaires %>
+  <% if current_profile.is_client == 1 && @profile.questionnaires %>
     <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
   <% end %>
+
 
   <%= link_to "Back home", root_path, class: "start-btn" %>
 
