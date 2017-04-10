@@ -66,15 +66,16 @@ class QuestionnairesController < ApplicationController
 
     # Uncompleted logic to generate random questionnaire
 
-    # @profileresults = Result.where(profile_id: current_profile.id, status: !0)
-    # @completed_questionnaire_ids = []
-    # @profileresults.each do |result|
-    #   @completed_questionnaire_id = result.questionnaire_id
-    #   @completed_questionnaire_ids << @completed_questionnaire_id
-    # end
-    # @random_completed_questionnaire_id = @completed_questionnaire_ids.sample
-    # @uncompleted_questionnaire_id = Question.find_by id: !@random_completed_questionnaire_id
-    # @questionnaire = Questionnaire.find(@uncompleted_questionnaire_id)
+    @profileresults = Result.where(profile_id: current_profile.id, status: !0)
+    raise
+    @completed_questionnaire_ids = []
+    @profileresults.each do |result|
+      @completed_questionnaire_id = result.questionnaire_id
+      @completed_questionnaire_ids << @completed_questionnaire_id
+    end
+    @random_completed_questionnaire_id = @completed_questionnaire_ids.sample
+    @uncompleted_questionnaire_id = Question.find_by id: !@random_completed_questionnaire_id
+    @questionnaire = Questionnaire.find(@uncompleted_questionnaire_id)
 
   end
 

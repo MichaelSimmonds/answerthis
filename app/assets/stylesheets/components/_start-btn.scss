@@ -1,0 +1,12 @@
+#start-btn{
+  background-color: rgba(0, 0, 0, 0);
+  color: $accent-orange;
+  border: 1px solid $accent-orange;
+  border-radius: 5px;
+  transition: background-color 0.5s, color 0.5s, border-radius 0s;
+}
+#start-btn:hover {
+  background-color: $accent-orange;
+  color: $background-blue;
+  border: 1px solid $accent-orange;
+}
