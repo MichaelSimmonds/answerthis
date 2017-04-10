@@ -1,35 +1,62 @@
-<p>#You are on the show view of questionnaires</p>
-<h1><%= @questionnaire.title%></h1>
-<p><%= @questionnaire.description%></p>
+<div class="text-center theme">
 
-<h2>questions</h2>
-<% @questionnaire.questions.each_with_index do |question, index| %>
-<h2><%=index+1%>.<%= question.title %></h2>
-<p><%= question.body %></p>
-<h4>answers</h4>
-<ol>
-  <% question.answers.each_with_index do |answer| %>
-    <li><%= answer.body %></li>
-  <% end %>
-</ol>
-<% end %>
+  <hr class="orange-line">
 
-<h3>prizes</h3>
-<% @questionnaire.prizes.each_with_index do |prize, index| %>
-  <h2><%=index+1%>.<%= prize.title %></h2>
-  <p><%= prize.description %></p>
-  <ul>
-    <li>prize value:<%= prize.value %></li>
-    <li>quantity_remaining:<%= prize.quantity_remaining %></li>
-    <li>win_probability:<%= prize.win_probability %></li>
-    <li>voucher_code:<%= prize.voucher_code %></li>
-  </ul>
-<% end %>
+  <h1><%= @questionnaire.title%></h1>
+  <p class="lighter-text"><%= @questionnaire.description%></p>
+
+  <hr class="orange-line">
+
+  <h2>Questions</h2>
+
+  <div class="questions-div">
+    <% question_number = 0 %>
+    <% @questionnaire.questions.each_with_index do |question, index| %>
+      <% question_number += 1 %>
+      <% question_number.to_s %>
+      <div class="question-card">
+        <h3><%= question_number %>: <%= question.title %></h3>
+        <p class="lighter-text"><%= question.body %></p>
+        <ul class="answers-list">
+
+          <% question.answers.each_with_index do |answer| %>
+            <li><%= answer.body %></li>
+            <li>another answer</li>
+          <% end %>
+
+        </ul>
+      </div>
+    <% end %>
+  </div>
+
+  <hr class="orange-line">
+
+  <h2>Prizes</h2>
+
+  <div class="prizes-div">
+    <% @questionnaire.prizes.each_with_index do |prize, index| %>
+      <div class="prize-card">
+        <h3><%= prize.title %></h3>
+        <p class="lighter-text"><%= prize.description %></p>
+
+        <ul class="prize-detail-list">
+          <li><strong>Value:</strong> <%= prize.value %></li>
+          <li><strong>Quantity:</strong> <%= prize.quantity_remaining %></li>
+          <li><strong>Probability:</strong> <%= prize.win_probability %></li>
+          <li><strong>Voucher code:</strong> <%= prize.voucher_code %></li>
+        </ul>
+
+      </div>
+    <% end %>
+  </div>
 
 
+  <div class="button">
+    <%= link_to "Add prizes", new_questionnaire_prize_path(@questionnaire), class: "purple-btn" %>
+  </div>
+  <hr class="orange-line">
+  <div class="button">
+    <%= link_to "All questionnaires", questionnaires_path(@questionnaire), class: "purple-btn" %>
+  </div>
 
-
-<br>
-<%= link_to "Add prizes", new_questionnaire_prize_path(@questionnaire), class: "btn btn-primary" %>
-<br>
-<%= link_to "All questionnaires", questionnaires_path(@questionnaire), class: "btn btn-primary" %>
+</div>

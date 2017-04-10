@@ -1,0 +1,94 @@
+// Qeustion cards
+
+.questions-div{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 3%;
+  margin-top: 2%;
+}
+
+.question-card{
+  border: 1px solid $main-purple;
+  border-radius: 2px;
+  width: 35%;
+  height: 50%;
+  margin: 5px;
+  padding: 4px;
+}
+
+.answers-list{
+  padding: 5%;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.answers-list > li{
+  border: 1px solid $accent-orange;
+  border-radius: 2px;
+}
+
+// .answers-list{
+//   border: 1px solid $main-purple;
+// }
+
+// Prize cards
+
+.prizes-div{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 3%;
+  margin-top: 2%;
+}
+
+.prize-card{
+  border: 1px solid $main-purple;
+  border-radius: 2px;
+  width: 35%;
+  height: 50%;
+  margin: 5px;
+  padding: 4px;
+}
+
+
+// General
+
+.prize-detail-list, .answers-list{
+  border: 1px solid $main-purple;
+  border-radius: 2px;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prize-detail-list > li, .answers-list > li {
+  text-align: center;
+  font-weight: lighter;
+  color: $accent-orange;
+  margin: 2%;
+  width: 80%;
+  font-size: 10px;
+}
+
+.question-card, .prize-card{
+   box-shadow: 1px 1px 10px #888888;
+   background-color: $background-blue;
+}
+
+.button{
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+
+
+.lighter-text{
+  font-weight: lighter;
+}
+.accent-orange{
+  color: $accent-orange;
+}
+.main-purple{
+  color: $main-purple;
+}

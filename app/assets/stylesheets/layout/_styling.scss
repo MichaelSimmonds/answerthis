@@ -1,8 +1,7 @@
 .theme{
-  padding-top: 10px;
   background-color: $background-blue;
   color: $main-purple;
-  height: 100vh;
+  height: 100%;
 }
 
 .link{
@@ -13,3 +12,22 @@
   color: $main-purple;
   text-decoration: none;
 }
+
+.orange-line{
+  border: 0;
+  width: 80%;
+  margin: 0 auto;
+  height: 1px;
+  color: $accent-orange;
+  background-color: $accent-orange;
+}
+
+.small-purp-line{
+  border: 0;
+  width: 40%;
+  margin: 0 auto;
+  height: 1px;
+  color: $main-purple;
+  background-color: $main-purple;
+}
+

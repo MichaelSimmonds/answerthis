@@ -1,0 +1,14 @@
+.purple-btn{
+  background-color: rgba(0, 0, 0, 0);
+  color: $main-purple;
+  border: 1px solid $main-purple;
+  border-radius: 2px;
+  padding: 6px;
+  transition: background-color 0.5s, color 0.5s, border-radius 0s;
+}
+.purple-btn:hover {
+  background-color: $main-purple;
+  color: $background-blue;
+  border: 1px solid $main-purple;
+  text-decoration: none;
+}
