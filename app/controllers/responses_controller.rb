@@ -8,6 +8,8 @@ class ResponsesController < ApplicationController
   def intro
     @questionnaire = Question.find(params[:question_id]).questionnaire
     @question = Question.find(params[:question_id])
+    session[:original_position] = @questionnaire.questions.length + params[:question_id].to_i
+
   end
 
   def new
@@ -25,7 +27,8 @@ class ResponsesController < ApplicationController
     @questionnaire = Questionnaire.find(params[:questionnaire_id]).questions
     the_next = params[:question_id]
     the_next = the_next.to_i + 1
-    if the_next<= @questionnaire.length
+
+    if the_next < session[:original_position]
       the_next = the_next.to_s
       redirect_to new_questionnaire_question_response_path(params[:questionnaire_id], the_next)
     else
