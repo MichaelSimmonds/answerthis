@@ -4,3 +4,12 @@
   color: $main-purple;
   height: 100vh;
 }
+
+.link{
+  color: $accent-orange;
+}
+
+.link:hover{
+  color: $main-purple;
+  text-decoration: none;
+}
