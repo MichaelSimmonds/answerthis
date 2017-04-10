@@ -5,3 +5,15 @@
 //= require form_completeion_percentage
 //= require questionnaires_play
 //= require spinner
+
+// $(".alert").slideUp(700)
+$(".alert").ready(function(){
+  setTimeout(function(){
+    $(".alert").slideUp(500)
+  }, 1500)
+});
+
+
+
+
+
