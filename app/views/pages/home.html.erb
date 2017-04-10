@@ -3,24 +3,26 @@
   <h1>Hi there <%=current_user.profile.first_name%>, how you doing...?</h1>
   <% end %>
 
+  <hr>
 
+  <% if current_user && current_profile.is_client == 1 %>
+  <%= render "home_clients"%>
+  <% end %>
+
+  <hr>
+
+  <% if current_user && current_profile.is_client != 1 %>
+    <%= render "home_end_user" %>
+  <% end %>
+
+  <hr>
 
   <% if !current_user %>
   <%= render "home_for_public" %>
   <% end %>
-  <br>
-  <% if current_user %>
-  <%= render "home_end_user" %>
-  <% end %>
-  <br>
 
 
 
-  <% if current_user %>
-  <% if current_profile.is_client == 1 %>
-  <% render "home_clients"%>
-  <% end %>
-  <% end %>
 
   <%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "start-btn" %>
 
