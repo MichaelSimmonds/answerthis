@@ -1,3 +1,5 @@
-<h1><%= @questionnaire.title%></h1>
-<p><%= @questionnaire.description%></p>
-<%= link_to "Lets Play!", new_questionnaire_question_response_path(@questionnaire.id, @question.id) %>
+<div class="theme text-center">
+  <h1><%= @questionnaire.title%></h1>
+  <p><%= @questionnaire.description%></p>
+  <%= link_to "Lets Play", new_questionnaire_question_response_path(@questionnaire.id, @question.id), { class: "start-btn" } %>
+</div>

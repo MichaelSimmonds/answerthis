@@ -1,11 +1,16 @@
-<h2><%=@question.title %></h2>
-<p><%=@question.body %></p>
+<div class="q-n-a-div text-center theme">
+  <h2><%=@question.title %></h2>
+  <p><%=@question.body %></p>
 
-  <%@answers.each do |answer|%>
-
-    <% selected_answer = answer.id%>
-    <%= simple_form_for [@questionnaire, @question, @response] do |f|  %>
-      <%= f.hidden_field :response, value: selected_answer %>
-      <%= f.submit answer.body, class: "btn btn-primary btn-md prize-btn" %>
-  <%end%>
-  <%end%>
+    <div class="answers-card">
+      <%@answers.each do |answer|%>
+        <div class="answer-btn">
+          <% selected_answer = answer.id%>
+          <%= simple_form_for [@questionnaire, @question, @response] do |f|  %>
+            <%= f.hidden_field :response, value: selected_answer %>
+            <%= f.submit answer.body, class: "start-btn text-center" %>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
+</div>
