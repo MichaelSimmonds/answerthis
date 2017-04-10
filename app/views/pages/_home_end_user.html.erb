@@ -1,6 +1,5 @@
-<h1>Home for enduser</h1>
+<div class="welcome-container text-center">
+  <h3>Welcome back <%=current_user.profile.first_name%>, how you doing...?</h3>
 
   <%= link_to "Go to a questionnaire", new_questionnaire_result_path(Questionnaire.last.id), class: "start-btn" %>
-
-
-<br>
+</div>

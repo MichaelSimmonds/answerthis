@@ -1,5 +1,10 @@
-<h1>Home for clients</h1>
+<div class="welcome-container text-center">
+  <h3>Welcome back <%=current_user.profile.first_name%></h3>
 
-<%= link_to "Create new questionnaire", new_questionnaire_path, class: "start-btn" %>
-
-<%= link_to "Show all Questionnairs", questionnaires_path, class: "start-btn" %>
+  <div>
+    <%= link_to "Create new questionnaire", new_questionnaire_path, class: "start-btn" %>
+  </div>
+  <div>
+    <%= link_to "Show all Questionnairs", questionnaires_path, class: "start-btn" %>
+  </div>
+</div>
