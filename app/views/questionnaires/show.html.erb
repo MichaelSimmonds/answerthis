@@ -12,20 +12,19 @@
   <div class="questions-div">
     <% question_number = 0 %>
     <% @questionnaire.questions.each_with_index do |question, index| %>
-      <% question_number += 1 %>
-      <% question_number.to_s %>
-      <div class="question-card">
-        <h3><%= question_number %>: <%= question.title %></h3>
-        <p class="lighter-text"><%= question.body %></p>
-        <ul class="answers-list">
+    <% question_number += 1 %>
+    <% question_number.to_s %>
+    <div class="question-card">
+      <h3><%= question_number %>: <%= question.title %></h3>
+      <p class="lighter-text"><%= question.body %></p>
+      <ul class="answers-list">
 
-          <% question.answers.each_with_index do |answer| %>
-            <li><%= answer.body %></li>
-            <li>another answer</li>
-          <% end %>
+        <% question.answers.each_with_index do |answer| %>
+        <li><%= answer.body %></li>
+        <% end %>
 
-        </ul>
-      </div>
+      </ul>
+    </div>
     <% end %>
   </div>
 
@@ -35,18 +34,18 @@
 
   <div class="prizes-div">
     <% @questionnaire.prizes.each_with_index do |prize, index| %>
-      <div class="prize-card">
-        <h3><%= prize.title %></h3>
-        <p class="lighter-text"><%= prize.description %></p>
+    <div class="prize-card">
+      <h3><%= prize.title %></h3>
+      <p class="lighter-text"><%= prize.description %></p>
 
-        <ul class="prize-detail-list">
-          <li><strong>Value:</strong> <%= prize.value %></li>
-          <li><strong>Quantity:</strong> <%= prize.quantity_remaining %></li>
-          <li><strong>Probability:</strong> <%= prize.win_probability %></li>
-          <li><strong>Voucher code:</strong> <%= prize.voucher_code %></li>
-        </ul>
+      <ul class="prize-detail-list">
+        <li><strong>Value:</strong> <%= prize.value %></li>
+        <li><strong>Quantity:</strong> <%= prize.quantity_remaining %></li>
+        <li><strong>Probability:</strong> <%= prize.win_probability %></li>
+        <li><strong>Voucher code:</strong> <%= prize.voucher_code %></li>
+      </ul>
 
-      </div>
+    </div>
     <% end %>
   </div>
 
