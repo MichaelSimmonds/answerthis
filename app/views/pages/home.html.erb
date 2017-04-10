@@ -3,20 +3,19 @@
   <h1>Hi there <%=current_user.profile.first_name%>, how you doing...?</h1>
   <% end %>
 
-  <hr>
-
+<!-- FOR CLIENTS -->
   <% if current_user && current_profile.is_client == 1 %>
   <%= render "home_clients"%>
   <% end %>
 
-  <hr>
 
+<!-- FOR END USERS -->
   <% if current_user && current_profile.is_client != 1 %>
     <%= render "home_end_user" %>
   <% end %>
 
-  <hr>
 
+<!-- FOR THE PUBLIC -->
   <% if !current_user %>
   <%= render "home_for_public" %>
   <% end %>
