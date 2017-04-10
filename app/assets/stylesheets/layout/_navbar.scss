@@ -54,15 +54,24 @@
 /* Navbar right button */
 .navbar-wagon-button {
   margin-left: 10px;
-  padding: 0 20px;
-  border-radius: 20em;
-  line-height: 40px;
+  padding: 0 10px;
+  line-height: 27px;
   font-size: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: $background-blue;
+  border: 3px solid $main-purple;
+  background-color: rgba(71, 59, 119, 1);
+  transition: border 0.5s, color 0.5s, background-color 0.5s, font-weight 0.5s;
 }
 .navbar-wagon-button:hover {
   // color: white;
   // background: #D23333;
   // border-color: #ac2626;
+  color: $accent-orange;
+  border: 3px solid $accent-orange;
+  background-color: rgba(71, 59, 119, 0);
+  text-decoration: none;
 }
 
 /* Navbar search form */
