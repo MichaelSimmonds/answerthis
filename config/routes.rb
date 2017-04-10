@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
    resources :questionnaires, only: [ :index, :show, :new, :create ] do
     resources :questions
-    resources :results, only: [ :new, :create, :edit, :update ]
+    resources :results, only: [ :new, :create, :edit, :update, :show ]
     resources :prizes
 
    end

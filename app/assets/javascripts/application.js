@@ -4,3 +4,4 @@
 //= require cable
 //= require form_completeion_percentage
 //= require questionnaires_play
+//= require spinner
