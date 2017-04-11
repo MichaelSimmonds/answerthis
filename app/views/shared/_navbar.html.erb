@@ -28,13 +28,13 @@
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <%= mail_to "hello@answerthis.nl", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!" do %>
+            <i class="fa fa-envelope"></i>  <%= t(".profile", default: "Contact") %>
             <% end %>
           </li>
           <li>
-            <%= mail_to "hello@answerthis.nl", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!" do %>
-            <i class="fa fa-envelope"></i>  <%= t(".profile", default: "Contact") %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
           </li>
         </ul>
