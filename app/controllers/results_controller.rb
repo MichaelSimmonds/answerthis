@@ -26,6 +26,7 @@ class ResultsController < ApplicationController
   def edit
     @result = Result.find(params[:id])
     @result.status = 1
+    email_prize(current_user, @result.prize)
     @result.save!
   end
 
@@ -34,6 +35,12 @@ class ResultsController < ApplicationController
   end
 
   private
+
+  def email_prize(user,prize)
+    @user = user
+    @prize = prize
+    UserMailer.prize(@user,@prize).deliver_now
+  end
 
   def prize_params
     params.require(:questionnaire).permit(:prize_id, :result)

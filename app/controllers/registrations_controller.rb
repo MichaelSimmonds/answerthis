@@ -1,16 +1,26 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  # after_create :send_welcome_email
+
   def create
     super do
+      UserMailer.welcome(@user).deliver_now
       Profile.create!(user_id: resource.id)
     end
   end
+
+  # private
+  #
+  # def send_welcome_email
+  #   UserMailer.welcome(self).deliver_now
+  # end
 
   protected
 
   def after_sign_up_path_for(resource)
     edit_profile_path(resource.profile.id)
   end
+
 
 
 end
