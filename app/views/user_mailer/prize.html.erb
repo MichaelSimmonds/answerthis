@@ -1,0 +1,10 @@
+<div class="page-body">
+  <h1><%=@user.profile.first_name%>! You won</h1>
+
+  <p>
+    <%= @user.profile.first_name %>, here is your code for your prize
+  </p>
+  <p>
+    <%=@prize.title%>:- <%= @prize.voucher_code %>
+  </p>
+</div>
