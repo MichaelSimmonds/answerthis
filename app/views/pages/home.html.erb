@@ -1,28 +1,24 @@
 <div class="text-center theme">
 
 
-<div class="hero-banner">
+  <div class="hero-banner">
 
-  <%= image_tag("laptop.png", class: "image-left") %>
-  <!-- FOR CLIENTS -->
-    <% if current_user && current_profile.is_client == 1 %>
-    <%= render "home_clients"%>
-    <% end %>
-  <!-- FOR END USERS -->
-    <% if current_user && current_profile.is_client != 1 %>
-      <%= render "home_end_user" %>
-    <% end %>
-  <!-- FOR THE PUBLIC -->
-    <% if !current_user %>
-    <%= render "home_for_public" %>
-    <% end %>
+    <%= image_tag("laptop.png", class: "image-left") %>
+    <!-- FOR CLIENTS -->
+      <% if current_user && current_profile.is_client == 1 %>
+      <%= render "home_clients"%>
+      <% end %>
+    <!-- FOR END USERS -->
+      <% if current_user && current_profile.is_client != 1 %>
+        <%= render "home_end_user" %>
+      <% end %>
+    <!-- FOR THE PUBLIC -->
+      <% if !current_user %>
+      <%= render "home_for_public" %>
+      <% end %>
 
-    <%= image_tag("phone.png", class: "image-right") %>
+      <%= image_tag("phone.png", class: "image-right") %>
 
-</div>
-
-
-
-  <%= mail_to "hello@answerthis.nl", "Get in touch!", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "start-btn" %>
+  </div>
 
 </div>
