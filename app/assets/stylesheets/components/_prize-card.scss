@@ -9,15 +9,15 @@
 .prize-div{
   flex-basis: 30%;
   margin: 0.7em;
-  padding: 1.2em;
+  // padding: 1.2em;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   border: 2.5px solid $accent-orange;
+  // height: calc(width)
   input{
-    max-width: 8em;
-    max-height: 8em;
-    height: calc(width)
+    width: 6em;
+    height: 6em;
   }
   &:hover{
     opacity: 0.7;
