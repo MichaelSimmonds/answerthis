@@ -35,16 +35,6 @@ a{
   transform: rotate(0deg);
 }
 
-#wheel:before{
-  content:'';
-  position:absolute;
-  border:4px solid rgba(0,0,0,0.1);
-  width:242px;
-  height:242px;
-  border-radius:50%;
-  z-index:1000;
-}
-
 #inner-wheel{
   width:100%;
   height:100%;
