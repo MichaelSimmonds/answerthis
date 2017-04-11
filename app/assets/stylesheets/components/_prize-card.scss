@@ -1,48 +1,40 @@
 .prize-selection-div{
   display: flex;
+  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 
 .prize-div{
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  margin-left: 3px;
-  margin-right: 3px;
+  flex-basis: 30%;
+  margin: 0.7em;
+  padding: 1.2em;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  border: 2.5px solid $accent-orange;
+  input{
+    max-width: 8em;
+    max-height: 8em;
+    height: calc(width)
+  }
+  &:hover{
+    opacity: 0.7;
+    color: $background-blue;
+  }
 }
 
 .prize-btn{
-  height: 200px;
-  width: 200px;
+  height: 6em;
+  width: 6em;
   background-size: cover !important;
   border-radius: 4px;
-  border: 2.5px solid rgba(0,0,0,0);
+  // border: 2.5px solid rgba(0,0,0,0);
   color: rgba(0,0,0,0);
   opacity: 0;
   filter: alpha(opacity=50);
   transition: opacity 0.5s, border 0.5s, color 0.5s, background-color 0.5s;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+
   // font-size: 50%;
 }
-
-
-.prize-btn:hover{
-  opacity: 0.7;
-  border: 2.5px solid $accent-orange;
-  color: $background-blue;
-}
-
-
-
-
-
-
