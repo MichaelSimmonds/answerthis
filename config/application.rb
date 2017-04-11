@@ -26,4 +26,9 @@ module Answerthis
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end
+
+# # Configuring Rails to serve error pages from the Rails app itself
+# config.exceptions_app = self.routes
+
+
 end

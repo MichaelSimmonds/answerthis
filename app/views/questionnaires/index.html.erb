@@ -4,7 +4,7 @@
 
   <ul class="questions-list">
     <% current_profile.questionnaires.each do |questionnaire| %>
-      <div class="question-card">
+      <div class="questionnaire-card">
         <li>
           <%= link_to questionnaire.title, questionnaire_path(questionnaire), class: 'link' %>
         </li>
