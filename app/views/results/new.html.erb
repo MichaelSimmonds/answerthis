@@ -4,10 +4,10 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-4">
+      <div class="col-sm-6 col-sm-offset-3 col-xs-12">
         <div class="prize-selection-div">
           <% @prizes.each do |prize| %>
-          <div class='prize-div' style="background-image:url('<%= image_path prize.image_url %>');
+          <div class='prize-div text-center' style="background-image:url('<%= image_path prize.image_url %>');
             ')">
             <% selected_prize = prize.id%>
             <%= simple_form_for [@questionnaire, @result] do |f|  %>
