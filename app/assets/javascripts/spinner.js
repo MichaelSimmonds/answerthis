@@ -1,24 +1,14 @@
 //set default degree (360*5)
-var degree = 1800;
-//number of clicks = 0
-var clicks = 0;
+var second_prize =  23.89 * 30;
+var first_prize = 23.89 * 40;
+var lose = 23.89 * 50;
 
 $(document).ready(function(){
 
   /*WHEEL SPIN FUNCTION*/
   $('#spin').click(function(){
 
-    //add 1 every click
-    clicks ++;
-
-    /*multiply the degree by number of clicks
-    generate random number between 1 - 360,
-    then add to the new degree*/
-    var newDegree = 2027;
-    var extraDegree = 0;
-    totalDegree = newDegree+extraDegree;
-
-    console.log(newDegree,extraDegree, totalDegree)
+    degree = first_prize;
     /*let's make the spin btn to tilt every
     time the edge of the section hits
     the indicator*/
@@ -27,7 +17,7 @@ $(document).ready(function(){
       var noY = 0;
 
       var c = 0;
-      var n = 700;
+      var n = 100;
       var interval = setInterval(function () {
         c++;
         if (c === n) {
@@ -51,7 +41,7 @@ $(document).ready(function(){
       }, 10);
 
       $('#inner-wheel').css({
-        'transform' : 'rotate(' + totalDegree + 'deg)'
+        'transform' : 'rotate(' + degree + 'deg)'
       });
 
       noY = t.offset().top;
@@ -59,8 +49,36 @@ $(document).ready(function(){
     });
     setTimeout(function() {
       $('.result').addClass('show');
+      saveResult();
     }, 5500);
+
   });
+
+
+  function saveResult() {
+    function RemoveLastDirectoryPartOf(the_url)
+    {
+        var the_arr = the_url.split('/');
+        the_arr.pop();
+        return( the_arr.join('/') );
+    }
+
+    var URL = RemoveLastDirectoryPartOf(location.href);
+    console.log(URL)
+    $.ajax({
+     type: "PUT",
+     contentType: "application/json",
+     url: URL,
+     data : JSON.stringify({status:1}),
+     dataType: "json",
+     success: function (result) {
+        //window.alert("success!!");
+     },
+     error: function (){
+        console.log("something wrong!");
+     }
+    });
+  }
 });//DOCUMENT READY
 
 

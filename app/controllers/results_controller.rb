@@ -25,13 +25,13 @@ class ResultsController < ApplicationController
 
   def edit
     @result = Result.find(params[:id])
-    @result.status = 1
-    email_prize(current_user, @result.prize)
-    @result.save!
   end
 
   def update
-    # @result.save!
+    @result = Result.find(params[:id])
+    @result.status = 1
+    @result.save!
+    email_prize(current_user, @result.prize)
   end
 
   private
