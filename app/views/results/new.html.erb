@@ -7,13 +7,15 @@
       <div class="col-sm-6 col-sm-offset-3 col-xs-12">
         <div class="prize-selection-div">
           <% @prizes.each do |prize| %>
-          <div class='prize-div text-center' style="background-image:url('<%= image_path prize.image_url %>');
-            ')">
-            <% selected_prize = prize.id%>
-            <%= simple_form_for [@questionnaire, @result] do |f|  %>
-            <%= f.hidden_field :result, value: selected_prize %>
-            <%= f.submit prize.title, { class: "prize-btn" } %>
-            <% end %>
+          <div class="prize-container">
+            <div class='prize-div text-center' style="background-image:url('<%= image_path prize.image_url %>');
+              ')">
+              <% selected_prize = prize.id%>
+              <%= simple_form_for [@questionnaire, @result] do |f|  %>
+              <%= f.hidden_field :result, value: selected_prize %>
+              <%= f.submit prize.title, { class: "prize-btn" } %>
+              <% end %>
+            </div>
           </div>
           <% end %>
         </div>
