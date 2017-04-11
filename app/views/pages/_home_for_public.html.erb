@@ -1,16 +1,10 @@
 <div class="welcome-container text-center">
   <h3>Welcome</h3>
-  <div>
-    <span>
-      <%= link_to "Sign in", new_user_session_path, class: "start-btn" %>
-    </span>
-  </div>
-  <br>
-  <div>
-    <span>
-      <%= mail_to "hello@answerthis.nl", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "start-btn" do %>
-      <i ></i>  <%= t(".profile", default: "Contact") %>
-      <% end %>
-    </span>
-  </div>
+
+    <%= link_to "Sign in", new_user_session_path, class: "start-btn" %>
+
+    <%= mail_to "hello@answerthis.nl", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "start-btn" do %>
+    <%= t(".profile", default: "Contact") %>
+    <% end %>
+
 </div>
