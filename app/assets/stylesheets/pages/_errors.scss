@@ -1,0 +1,48 @@
+.errors-wrapper{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-div{
+  box-shadow: 1px 1px 10px rgba(71, 59, 119, 1);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  // margin-top: 20%;
+  border: 1px solid rgba(71, 59, 119, 1);
+  border-radius: 4px;
+  height: 30%;
+  width: 40%;
+  transition: box-shadow 0.5s, border 0.5s;
+}
+
+.error-div:hover{
+  box-shadow: 1px 1px 10px rgba(71, 59, 119, 0);
+  border: 1px solid rgba(71, 59, 119, 0);
+}
+
+.error-btn{
+  background-color: rgba(239, 125, 46, 1);
+  color: rgba(225, 255, 225, 1);
+  border: 1px solid $accent-orange;
+  border-radius: 2px;
+  padding: 6px;
+  margin-bottom: 0.5%;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.error-btn:hover{
+  background-color: rgba(239, 125, 46, 0);
+  color: rgba(239, 125, 46, 1);
+}
+
+.error-desc{
+  border-left: 1px solid $main-purple;
+  padding-left: 5%;
+  margin-left: 7%;
+}
+
