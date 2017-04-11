@@ -1,5 +1,5 @@
 <div class="welcome-container text-center">
-  <h3>Welcome back, <%=current_user.profile.first_name%>! Ready to win some drugs?</h3>
+  <h3>Welcome back, <%=current_user.profile.first_name%>! Ready to win some cool prizes?</h3>
 
   <%= link_to "Go to a questionnaire", new_questionnaire_result_path(Questionnaire.last.id), class: "start-btn" %>
 </div>

@@ -25,12 +25,12 @@ class ResultsController < ApplicationController
 
   def edit
     @result = Result.find(params[:id])
-    @result.status = 1
-    @result.save!
   end
 
   def update
-    # @result.save!
+    @result = Result.find(params[:id])
+    @result.status = 1
+    @result.save!
   end
 
   private
