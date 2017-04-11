@@ -3,11 +3,11 @@
   <h1>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h1>
 
   <% if current_profile.is_client == 1 %>
-    <h2>You are a client!</h2>
-    <p>Company name: <%=current_profile.company_name.capitalize%></p>
-    <p>Company address: <%=current_profile.company_address%></p>
+  <h2>You are a client!</h2>
+  <p>Company name: <%=current_profile.company_name.capitalize%></p>
+  <p>Company address: <%=current_profile.company_address%></p>
   <% else %>
-    <h2>You are an Enduser!</h2>
+  <h2>You are an Enduser!</h2>
   <% end %>
 
   <br>
@@ -17,11 +17,23 @@
   <p>Gender: <%=current_profile.gender%></p>
   <br>
 
-
   <% if current_profile.is_client == 1 && @profile.questionnaires %>
-    <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
+  <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
   <% end %>
 
+  <h1>Prizes won:</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-12">
+        <% @profile.results.each do |result| %>
+        <div class="prize-card">
+          <li><%= result.status %></li>
+          <li><%= result.prize_id %></li>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <%= link_to "Back home", root_path, class: "start-btn" %>
 
