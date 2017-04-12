@@ -1,47 +1,55 @@
 <div class="theme text-center">
   <%if current_profile.first_name && current_profile.last_name && current_profile.dob && current_profile.gender%>
 
-    <h1>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h1>
-
-    <% if current_profile.is_client == 1 %>
-    <p>Company name: <%=current_profile.company_name.capitalize%></p>
-    <p>Company address: <%=current_profile.company_address%></p>
-    <% end %>
-
-    <br>
-    <p>First Name: <%=current_profile.first_name.capitalize%></p>
-    <p>Last Name: <%=current_profile.last_name.capitalize%></p>
-    <p>Date of birth: <%=current_profile.dob%></p>
-    <p>Gender: <%=current_profile.gender%></p>
-    <br>
-  <%else%>
-    <h2>Your profile is incomplete</h2>
-    <%= link_to "Complete profile now", edit_profile_path(current_profile.id), class: "start-btn"%>
-  <%end%>
-
-  <% if current_profile.is_client == 1 && @profile.questionnaires %>
-  <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
-  <% end %>
-  <div class="container ">
-    <h1>Prizes won:</h1>
-    <% @profile.results.each do |result| %>
+  <h1>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h1>
+  <div class="container">
     <div class="row">
-      <div class="prizes-won-card col-xs-12 col-sm-6 col-lg-6">
-       <% if result.status == 1 %>
-       <p>Won, 1st prize!</p>
-       <p><%= result.prize.title %></p>
-       <%= link_to "Redeem", root_path, class: "start-btn"%>
-       <% elsif result.status == 2 %>
-       <p>Won, 2nd prize!</p>
-       <% elsif result.status == 0 %>
-       <p>Lost...</p>
-       <% end %>
+      <% if current_profile.is_client == 1 %>
+      <p>Company name: <%=current_profile.company_name%></p>
+      <p>Company address: <%=current_profile.company_address%></p>
+      <% end %>
+
+      <br>
+      <p>First Name: <%=current_profile.first_name.capitalize%></p>
+      <p>Last Name: <%=current_profile.last_name.capitalize%></p>
+      <p>Date of birth: <%=current_profile.dob%></p>
+      <p>Gender: <%=current_profile.gender%></p>
+      <br>
+      <%else%>
+      <h2>Your profile is incomplete</h2>
+      <%= link_to "Complete profile now", edit_profile_path(current_profile.id), class: "start-btn"%>
+      <%end%>
+
+      <% if current_profile.is_client == 1 && @profile.questionnaires %>
+      <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container">
+  <!-- Check if there are results -->
+    <% if @profile.results != [] %>
+      <h1>Prizes won:</h1>
+      <% @profile.results.each do |result| %>
+      <!-- show different content based on result status -->
+      <% if result.status == 1 || result.status == 2 %>
+        <div class="row">
+          <div class="prizes-won-card col-xs-12 col-sm-6 col-lg-6">
+           <% if result.status == 1 %>
+               <p>Won, 1st prize!</p>
+               <p><%= result.prize.title %></p>
+               <%= link_to "Redeem", root_path, class: "start-btn"%>
+           <% else%>
+                <p>Won, 2nd prize!</p>
+           <% end %>
+       </div>
      </div>
-   </div>
+      <% end %>
+     <% end %>
    <% end %>
  </div>
 </div>
- <br>
- <div class="container text-center ">
+<br>
+<div class="container text-center ">
  <%= link_to "Back home", root_path, class: "start-btn" %>
- </div>
+</div>
