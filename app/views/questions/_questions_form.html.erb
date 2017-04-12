@@ -1,7 +1,14 @@
 
+<div class="form-wrapper">
 
-<%= simple_form_for [@questionnaire, @question] do |f| %>
-<%= f.input :title, label: 'Title', class: "form_field", placeholder: "Greate question", required: true %>
-<%= f.input :body, label: 'Description', class: "form_field", placeholder: "Here goes your actuale question", required: true %>
-<%= f.submit %>
-<% end %>
+  <div class="create-form">
+
+    <%= simple_form_for [@questionnaire, @question], class: "form-control" do |f| %>
+    <%= f.input :title, label: 'Title', class: "form_field", placeholder: "General topic of question", required: true %>
+    <%= f.input :body, label: 'Body', class: "form_field", placeholder: "Actual query", required: true %>
+    <%= f.submit class: "start-btn" %>
+    <% end %>
+
+  </div>
+
+</div>

@@ -1,4 +1,13 @@
-<h1>Answers#new</h1>
-<p>Find me in app/views/answers/new.html.erb</p>
 
-<%=render "answers_form"%>
+<div class="text-center theme">
+  <hr class="orange-line">
+  <h1 style="padding-top: 1.5%;">Add answers for:</strong></h1>
+  <h2><strong><%= @question.body %></h2>
+  <div style="margin-bottom: 2%; margin-top: 2%;">
+    <%= link_to_unless(@question.answers.length > 4, "Next question", new_questionnaire_question_path(@question.questionnaire), class: "start-btn") %>
+
+    <%= link_to_unless(@question.answers.length > 4, "Show Questionnaire", questionnaire_path(@question.questionnaire), class: "start-btn") %>
+  </div>
+  <hr class="orange-line-small"></hr>
+  <%=render "answers_form"%>
+</div>
