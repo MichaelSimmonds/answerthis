@@ -1,21 +1,22 @@
-::-webkit-scrollbar {
+
+  div.prize-info::-webkit-scrollbar {
     width: 12px;
     // height: 30px;
-}
-::-webkit-scrollbar-button {
+  }
+  div.prize-info::-webkit-scrollbar-button {
     // width: 12px;
     // height: 4.5em;
     border-top: 4px solid rgb(237, 254, 255);
     border-bottom: 4px solid rgb(237, 254, 255);
     border-radius: 2px;
-}
-::-webkit-scrollbar-track {
+  }
+  div.prize-info::-webkit-scrollbar-track {
     background-color: rgb(237, 254, 255);
     border-left: 1px solid #ccc;
-}
-::-webkit-scrollbar-thumb {
+  }
+  div.prize-info::-webkit-scrollbar-thumb {
     background-color: $accent-orange;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: $accent-orange;
-}
+  }
+  div.prize-info::-webkit-scrollbar-thumb:hover {
+    background-color: $accent-orange;
+  }
