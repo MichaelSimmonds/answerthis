@@ -1,20 +1,51 @@
 // Question cards
 
 .questions-div{
+  height: auto;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: center;
+  // flex-direction: column;
+  align-content: center;
+  // flex-wrap: wrap;
+  margin: auto;
   margin-bottom: 3%;
-  margin-top: 2%;
+  margin-top: 4%;
+  text-align: center;
+}
+
+.question-list-container{
+  width: 100%;
+  height: 100%;
+}
+
+.question-list{
+  height: 100%;
+  width: 100%;
+  list-style-type: none;
+}
+
+.question-list-item{
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .question-card{
   border: 1px solid $main-purple;
   border-radius: 2px;
-  width: 35%;
-  height: 50%;
+  width: 100%;
+  height: 25%;
   margin: 5px;
-  padding: 4px;
+  margin-right: 0px !important;
+  padding: 4px 4px 0px 4px;
+}
+
+.prizes-div{
+  margin-top: 4%;
 }
 
 .answers-list{
@@ -35,8 +66,11 @@
 
 // General
 
-.prize-detail-list, .answers-list{
+.prize-detail-list{
   border: 1px solid $main-purple;
+}
+
+.prize-detail-list, .answers-list{
   border-radius: 2px;
   list-style-type: none;
   display: flex;
@@ -61,7 +95,19 @@
 
 .button{
   margin-top: 1.5%;
-  margin-bottom: 1.5%;
+  margin-bottom: 2.5%;
+}
+
+.title-div{
+  width: 100%;
+  text-align: center;
+}
+
+.q-or-a-title{
+  margin: 3% auto;
+  border-left: 1px solid $main-purple;
+  border-right: 1px solid $main-purple;
+  width: 15%;
 }
 
 

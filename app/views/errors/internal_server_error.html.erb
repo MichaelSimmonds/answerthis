@@ -1,14 +1,27 @@
 <div class="errors-wrapper theme">
   <div class="error-div">
-    <div id="error-404">
-      <h1>
-      Error <button class="error-btn">505</button>
-      </h1>
-    </div>
-    <div class="error-desc">
-      <h1>Internal server error</h1>
+    <div class="error-msg-div">
+      <div class="error-msg">
+        <ul class="error-list">
+          <li class="error-list-first">
+            <h1>
+            Error <button class="error-btn">505</button>
+            </h1>
+          </li>
+          <li class="error-list-second">
+            <h1 style="margin-top: 0px !important;">
+              Internal Server Error
+            </h1>
+          </li>
+          <li class="error-list-third">
+            <h1 style="margin-top: 50px !important; margin-bottom: 20px !important;">
+              <button class="navbar-wagon-button return-home-button">
+                <%= link_to 'Back to home', root_path, class: 'return-home-link' %>
+              </button>
+            </h1>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-
-

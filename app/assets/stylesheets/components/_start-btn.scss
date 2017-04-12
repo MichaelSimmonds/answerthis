@@ -4,7 +4,6 @@
   border: 1px solid $accent-orange;
   border-radius: 2px;
   padding: 6px;
-  // margin-bottom: 1.2em;
   transition: background-color 0.5s, color 0.5s, border-radius 0s;
   display: block;
   width: 300px;
@@ -18,5 +17,26 @@
 }
 
 .start-btn:visited{
+  text-decoration: none;
+}
+
+.start-btn-purple{
+  background-color: rgba(0, 0, 0, 0);
+  color: $main-purple;
+  border: 1px solid $main-purple;
+  border-radius: 2px;
+  padding: 6px;
+  margin-left: 2%;
+  margin-right: 2%;
+  transition: background-color 0.5s, color 0.5s, border-radius 0s;
+}
+.start-btn-purple:hover {
+  background-color: $main-purple;
+  color: $background-blue;
+  border: 1px solid $main-purple;
+  text-decoration: none;
+}
+
+.start-btn-purple:visited{
   text-decoration: none;
 }
