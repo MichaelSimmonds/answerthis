@@ -15,14 +15,9 @@ class RegistrationsController < Devise::RegistrationsController
   #   UserMailer.welcome(self).deliver_now
   # end
 
-  protected
-
   def after_sign_up_path_for(resource)
-    edit_profile_path(resource.profile.id)
+    edit_profile_path(resource.profile.id, first_time: true)
   end
-
-
-
 end
 
   ##This controller inherits from the Devise controller (which is hidden for security reasons)

@@ -22,6 +22,10 @@
     <div class="create-form">
       <%= simple_form_for [@profile] do |f| %>
 
+      <% if params[:first_time].present? %>
+        <%= hidden_field_tag 'first_time', true %>
+      <% end %>
+
         <%= f.input :first_name, label: 'First name', input_html: {value: first_name, class:"form_field" }, readonly: prefilled, required: true%>
 
         <%= f.input :last_name, label: 'Last name', input_html: {value: last_name, class:"form_field" }, readonly: prefilled, required: true%>
@@ -33,6 +37,7 @@
             <%= content_tag(:option, c.first, value: c.last) %>
           <% end %>
         <% end %>
+
         <hr class="orange-line-form-full" style="margin-top: 2.5%; margin-bottom: 2.5%;">
         <%= f.submit class: "start-btn" %>
 
