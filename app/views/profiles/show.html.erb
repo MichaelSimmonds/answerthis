@@ -27,6 +27,7 @@
   </div>
 
   <div class="container">
+  <% if current_profile.is_client == 0%>
   <!-- Check if there are results -->
     <% if @profile.results != [] %>
       <h1>Prizes won:</h1>
@@ -46,6 +47,9 @@
      </div>
       <% end %>
      <% end %>
+   <% else %>
+   <h1>No pizes yet...</h1>
+   <% end %>
    <% end %>
  </div>
 </div>
