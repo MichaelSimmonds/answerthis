@@ -1,23 +1,39 @@
-<h1>Current question: <%= @question.body %></h1>
-<%= simple_form_for [@question, @answer] do |f| %>
+<div class="form-wrapper">
+  <div class="create-form">
+  <% if @question.answers.length < 4 %>
+    <%= simple_form_for [@question, @answer], class: "form-control" do |f| %>
+      <%= f.input :body, label: 'Answer', class: "form_field", placeholder: "blabla", required: true %>
+    <%= f.submit class: "start-btn" %>
+    <% end %>
+  <% else %>
 
-  <%= f.input :body, label: 'Answer', class: "form_field", placeholder: "blabla", required: true %>
+  <% end %>
+  </div>
+</div>
 
-<%= f.submit %>
+
+<% if @question.answers.length > 0 %>
+  <h3>Current answers</h3>
 <% end %>
 
-<% @question.answers.order(created_at: :desc).each do |answer| %>
-  <pre>
-    <%= answer.body %>
-  </pre>
-  <%= link_to 'Destroy', question_answer_path(@question, answer),
-            data: {confirm: 'Are you sure?'}, method: :delete %>
+<div class="created-answers">
+  <% @question.answers.order(created_at: :desc).each do |answer| %>
+    <div class="created-answer">
+      <pre>
+        <%= answer.body %>
+      </pre>
+      <%= link_to 'Destroy', question_answer_path(@question, answer),
+                data: {confirm: 'Are you sure?'}, method: :delete, class: 'start-btn' %>
+    </div>
+  <% end %>
+</div>
+
+<% if @question.answers.length > 0 %>
+  <hr class="orange-line-small">
 <% end %>
 
 <% if @over_limit %>
   <%flash[:alert] = "There can only be 4 answers to a question..." %>
 <%end%>
 
-  <%= link_to_unless(@question.answers.length >= 4, "Next question", new_questionnaire_question_path(@question.questionnaire), class: "btn btn-primary") %>
 
-<%= link_to_unless(@question.answers.length >= 4, "Show Questionnaire", questionnaire_path(@question.questionnaire), class: "btn btn-primary") %>

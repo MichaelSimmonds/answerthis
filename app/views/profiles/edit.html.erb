@@ -1,34 +1,43 @@
-<h1>Now edit your profile</h1>
+<div class="text-center theme">
+
+  <h1>Now edit your profile</h1>
 
 
-<p><%=@profile.user.email%></p>
+  <p><%=@profile.user.email%></p>
 
-<% prefilled = @profile.user.provider == "facebook" ?  true : false %>
+  <% prefilled = @profile.user.provider == "facebook" ?  true : false %>
 
-<%if prefilled%>
-  <%first_name = @profile.user.first_name %>
-  <%last_name = @profile.user.last_name %>
-<%else%>
-  <%first_name = @profile.first_name %>
-  <%last_name = @profile.last_name %>
-<%end%>
+  <%if prefilled%>
+    <%first_name = @profile.user.first_name %>
+    <%last_name = @profile.user.last_name %>
+  <%else%>
+    <%first_name = @profile.first_name %>
+    <%last_name = @profile.last_name %>
+  <%end%>
 
-<%dob = @profile.dob || Date.yesterday%>
-<%gender = @profile.gender || "male"%>
+  <%dob = @profile.dob || Date.yesterday%>
+  <%gender = @profile.gender || "male"%>
 
-<%= simple_form_for [@profile] do |f| %>
+  <div class="form-wrapper">
+    <div class="create-form">
+      <%= simple_form_for [@profile] do |f| %>
 
-  <%= f.input :first_name, label: 'First name', input_html: {value: first_name, class:"form_field" }, readonly: prefilled, required: true%>
+        <%= f.input :first_name, label: 'First name', input_html: {value: first_name, class:"form_field" }, readonly: prefilled, required: true%>
 
-  <%= f.input :last_name, label: 'Last name', input_html: {value: last_name, class:"form_field" }, readonly: prefilled, required: true%>
+        <%= f.input :last_name, label: 'Last name', input_html: {value: last_name, class:"form_field" }, readonly: prefilled, required: true%>
 
-  <%= f.input :dob, label: 'Date of birth', input_html: {value: dob, class: "form_field" }, readonly: false, start_year: Date.today.year - 80, end_year: Date.today.year - 14, required: true%>
+        <%= f.input :dob, label: 'Date of birth', input_html: {value: dob, class: "form_field" }, readonly: false, start_year: Date.today.year - 80, end_year: Date.today.year - 14, required: true%>
 
-  <%= f.select(:gender, label: 'Gender', input_html: {value: gender, class: "form_field" }, readonly: false, required: true) do %>
-    <% [['Male', 'male'], ['Female', 'female'], ['Rather not say', 'no-gender']].each do |c| -%>
-    <%= content_tag(:option, c.first, value: c.last) %>
-    <% end %>
-  <% end %>
+        <%= f.select(:gender, label: 'Gender', input_html: {value: gender, class: "form_field" }, readonly: false, required: true) do %>
+          <% [['Male', 'male'], ['Female', 'female'], ['Rather not say', 'no-gender']].each do |c| -%>
+            <%= content_tag(:option, c.first, value: c.last) %>
+          <% end %>
+        <% end %>
+        <hr class="orange-line-form-full" style="margin-top: 2.5%; margin-bottom: 2.5%;">
+        <%= f.submit class: "start-btn" %>
 
-  <%= f.submit %>
-<% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
