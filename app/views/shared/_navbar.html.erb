@@ -14,7 +14,7 @@
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <% avatar_url = current_user.facebook_picture_url || "http://www.aspirehire.co.uk/aspirehire-co-uk/_img/profile.svg" %>
+        <% avatar_url = current_user.facebook_picture_url || "profile.svg" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
