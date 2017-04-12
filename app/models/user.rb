@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
   has_one :profile
 
-  validates :email, format: { with: /\A.*@.*\.com\z/ }, uniqueness: true
+  validates :email, format: { with: /\A.*@.*\.\z/ }, uniqueness: true
   validates :password, length: { minimum: 6 }
 
   # Include default devise modules. Others available are:
