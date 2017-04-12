@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super do
-      UserMailer.welcome(@user).deliver_now
+      # UserMailer.welcome(@user).deliver_now
       Profile.create!(user_id: resource.id)
     end
   end
