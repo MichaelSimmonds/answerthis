@@ -27,7 +27,7 @@
   </div>
 
   <div class="container">
-  <% if current_profile.is_client == 0%>
+  <% if current_profile.is_client == nil %>
   <!-- Check if there are results -->
     <% if @profile.results != [] %>
       <h1>Prizes won:</h1>
