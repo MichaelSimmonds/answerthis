@@ -18,11 +18,15 @@ class RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     edit_profile_path(resource.profile.id, first_time: true)
   end
+
+  def after_sign_in_path_for(resource)
+    root_path
+  end
 end
 
   ##This controller inherits from the Devise controller (which is hidden for security reasons)
 
-  ##Thia controller overwrites the default methods for #create and #after_sign_up_path_for
+  ##This controller overwrites the default methods for #create and #after_sign_up_path_for
 
   ##the create method takes everything the original create method did (SUPER) and also creates a user account (a  bit like when you create a new object before creating a form)
 
