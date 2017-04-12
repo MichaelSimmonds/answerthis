@@ -1,0 +1,14 @@
+#msgModal{
+  height: 55%;
+  width: 40%;
+  margin: 6% auto;
+  background-color: $background-blue;
+  border-radius: 2px;
+  box-shadow: 1px 1px 7px $main-purple;
+  color: $main-purple;
+  border: 1px solid $main-purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

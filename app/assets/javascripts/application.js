@@ -5,6 +5,7 @@
 //= require form_completeion_percentage
 //= require questionnaires_play
 //= require spinner
+//= require user_msg_on_spinner_page
 
 // $(".alert").slideUp(700)
 $(".alert").ready(function(){
