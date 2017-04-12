@@ -1,16 +1,28 @@
 <div class="theme text-center">
-  <h1>Questionnaires#index</h1>
-  <p>Find me in app/views/questionnaires/index.html.erb</p>
-
-  <ul class="questions-list">
-    <% current_profile.questionnaires.each do |questionnaire| %>
-      <div class="questionnaire-card">
-        <li>
-          <%= link_to questionnaire.title, questionnaire_path(questionnaire), class: 'link' %>
-        </li>
-      </div>
-    <% end %>
-  </ul>
+  <% number = current_profile.questionnaires.count %>
+  <% if number == 0 %>
+  <h1 style="padding-top: 2%; padding-bottom: 2%;">You have <strong><%= number %></strong> questionnaires</h1>
+  <% elsif number == 1 %>
+  <h1 style="padding-top: 2%; padding-bottom: 2%;">You have <strong><%= number %></strong> questionnaire</h1>
+  <% else %>
+  <h1 style="padding-top: 2%; padding-bottom: 2%;">You have <strong><%= number %></strong> questionnaires</h1>
+  <% end %>
+  <hr class="orange-line-small">
+  <div class="questions-list-div">
+    <ul class="questions-list">
+      <hr class="purp-line">
+      <% current_profile.questionnaires.each_with_index do |questionnaire, index| %>
+        <div class="questionnaire-card">
+          <li class="questions-list-item">
+            <%= link_to questionnaire.title, questionnaire_path(questionnaire), class: 'link' %> - <%= questionnaire.created_at %>
+          </li>
+          <% if number > 1 %>
+            <hr class="purp-line">
+          <% end %>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 
   <br>
   <%= link_to "Back home", root_path, class: "start-btn" %>
