@@ -1,21 +1,23 @@
 <div class="theme text-center">
+  <%if current_profile.first_name && current_profile.last_name && current_profile.dob && current_profile.gender%>
 
-  <h1>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h1>
+    <h1>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h1>
 
-  <% if current_profile.is_client == 1 %>
-  <h2>You are a client!</h2>
-  <p>Company name: <%=current_profile.company_name.capitalize%></p>
-  <p>Company address: <%=current_profile.company_address%></p>
-  <% else %>
-  <h2>You are an Enduser!</h2>
-  <% end %>
+    <% if current_profile.is_client == 1 %>
+    <p>Company name: <%=current_profile.company_name.capitalize%></p>
+    <p>Company address: <%=current_profile.company_address%></p>
+    <% end %>
 
-  <br>
-  <p>First Name: <%=current_profile.first_name.capitalize%></p>
-  <p>Last Name: <%=current_profile.last_name.capitalize%></p>
-  <p>Date of birth: <%=current_profile.dob%></p>
-  <p>Gender: <%=current_profile.gender%></p>
-  <br>
+    <br>
+    <p>First Name: <%=current_profile.first_name.capitalize%></p>
+    <p>Last Name: <%=current_profile.last_name.capitalize%></p>
+    <p>Date of birth: <%=current_profile.dob%></p>
+    <p>Gender: <%=current_profile.gender%></p>
+    <br>
+  <%else%>
+    <h2>Your profile is incomplete</h2>
+    <%= link_to "Complete profile now", edit_profile_path(current_profile.id), class: "start-btn"%>
+  <%end%>
 
   <% if current_profile.is_client == 1 && @profile.questionnaires %>
   <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
@@ -43,4 +45,3 @@
  <div class="container text-center ">
  <%= link_to "Back home", root_path, class: "start-btn" %>
  </div>
-
