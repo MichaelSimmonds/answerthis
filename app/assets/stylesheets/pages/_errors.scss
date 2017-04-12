@@ -7,7 +7,7 @@
 }
 
 .error-div{
-  box-shadow: 1px 1px 10px rgba(71, 59, 119, 0);
+  box-shadow: 1px 1px 25px rgba(71, 59, 119, 0);
   display: flex;
   text-align: center;
   justify-content: center;
@@ -15,8 +15,8 @@
   flex-direction: column;
   border: 1px solid rgba(71, 59, 119, 0);
   border-radius: 4px;
-  height: 80%;
-  width: 30%;
+  height: 90%;
+  width: 40%;
   transition: box-shadow 0.5s, border 0.5s;
 }
 
