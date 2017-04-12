@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
   # validates :email, format: { with: /\A.*@.*\.\z/ }, uniqueness: true
+
   validates :password, length: { minimum: 6 }
 
   # Include default devise modules. Others available are:
