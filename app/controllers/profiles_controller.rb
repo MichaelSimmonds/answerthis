@@ -20,7 +20,11 @@ class ProfilesController < ApplicationController
     # @profile.first_name = profile_params[:first_name]
     @profile.save!
     flash[:notice] = "Profile set"
-    redirect_to root_path
+    if params[:first_time]
+      redirect_to root_path(first_time: true)
+    else
+      redirect_to root_path
+    end
   end
 
   private
