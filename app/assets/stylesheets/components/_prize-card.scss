@@ -55,11 +55,12 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  // height: calc(width)
+  background-color: white;
+  border: none;
+  height: 80%;
+  width: 80%;
   input{
     padding: 1.5em;
-    // width: 6em;
-    // height: 6em;
   }
   &:hover{
     opacity: 0.7;
@@ -67,16 +68,44 @@
   }
 }
 
-.prize-btn{
-  height: 6em;
-  width: 6em;
-  background-size: cover !important;
-  border-radius: 4px;
-  // border: 2.5px solid rgba(0,0,0,0);
-  color: rgba(0,0,0,0);
-  opacity: 0;
-  filter: alpha(opacity=50);
-  transition: opacity 0.5s, border 0.5s, color 0.5s, background-color 0.5s;
+.prize-modal {
+  // border: 2px dashed pink;
+  background-color:white;
+  position: absolute;
+  // width: 40%;
+  margin: auto;
+}
 
-  // font-size: 50%;
+.prize-info {
+  padding: 1.2em;
+  max-height: 60%;
+  overflow-y: auto;
+}
+
+// .prize-btn{
+//   height: 6em;
+//   width: 6em;
+//   margin: auto;
+//   // background-size: cover !important;
+//   border-radius: 4px;
+//   border: 2.5px solid $accent-orange;
+//   // color: rgba(0,0,0,0);
+//   // opacity: 0;
+//   filter: alpha(opacity=50);
+//   transition: opacity 0.5s, border 0.5s, color 0.5s, background-color 0.5s;
+// }
+
+.prize-btn{
+  position: absolute;
+  bottom: 1.2em;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.prize-submit {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+
 }
