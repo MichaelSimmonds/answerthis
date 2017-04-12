@@ -1,5 +1,5 @@
 <dib class="theme text-center">
-  <h2 class="q-or-a-title">Sign up</h2>
+  <h2>Sign up</h2>
   <hr class="orange-line-smaller">
   <div class="form-wrapper">
     <div style="height: 100%; width: 40%;">
@@ -10,7 +10,6 @@
         <div class="form-inputs">
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-          <%= f.input :password_confirmation, required: true %>
         </div>
 
         <div class="form-actions">

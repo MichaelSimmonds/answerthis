@@ -3,12 +3,14 @@
     margin: 40% auto 0 auto;
 }
 .result{
+  // border: 3px dotted $accent-orange;
   width: 50%;
+  height: 120px;
   margin: 0 auto;
   text-align: center;
-  color: #000;
-  display:none;
+  color: $main-purple;
+  visibility: hidden;
   &.show{
-    display:block;
+    visibility: visible;
   }
 }

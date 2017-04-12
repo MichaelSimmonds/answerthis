@@ -1,4 +1,8 @@
 <div class="theme text-center">
+
+  <h1>Questionnaires</h1>
+  <p>Find a list of your questionnairs here:</p>
+
   <% number = current_profile.questionnaires.count %>
   <% if number == 0 %>
   <h1 style="padding-top: 2%; padding-bottom: 2%;">You have <strong><%= number %></strong> questionnaires</h1>
@@ -23,6 +27,7 @@
       <% end %>
     </ul>
   </div>
+
 
   <br>
   <%= link_to "Back home", root_path, class: "start-btn" %>
