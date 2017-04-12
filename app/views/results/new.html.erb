@@ -22,9 +22,10 @@
                     <span>
                       <% selected_prize = prize.id%>
                       <%= simple_form_for [@questionnaire, @result], html: { class: 'start-btn' } do |f|  %>
-                      <%= f.hidden_field :result, value: "" %>
-                      <%= f.submit :prize.title, { class: "prize-submit" } %>
+                      <%= f.hidden_field :result, value: selected_prize %>
+                      <%= f.submit prize.title, { class: "prize-submit" } %>
                       <% end %>
+
                     </span>
                     <span data-toggle="modal" data-target="#prize<%=prize.id%>" class="start-btn"> Choose again</span>
                   </div>
