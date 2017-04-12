@@ -17,7 +17,6 @@ class ResultsController < ApplicationController
     @result.profile_id = current_profile.id
     # @result = Result.find(params[:result_id])
     @result.save!
-
     filthy_var = Questionnaire.find(params[:questionnaire_id]).questions.first.id
 
     redirect_to question_intro_path(filthy_var)
@@ -25,13 +24,13 @@ class ResultsController < ApplicationController
 
   def edit
     @result = Result.find(params[:id])
+    @result.status = 1
+    @result.save!
+    # email_prize(current_user, @result.prize)
   end
 
   def update
-    @result = Result.find(params[:id])
-    @result.status = 1
-    @result.save!
-    email_prize(current_user, @result.prize)
+    # @result = Result.find(params[:id])
   end
 
   private

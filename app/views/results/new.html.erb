@@ -13,7 +13,6 @@
           <div class="prize-container">
             <!-- wrap this div in button and move the form into modal -->
               <input type='button' class='prize-div text-center' style="background-image:url('<%= image_path prize.image_url %>')" data-toggle="modal" data-target="#prize<%=prize.id%>">
-
               </input>
               <div class="modal fade prize-modal" id="prize<%=prize.id%>">
                 <!-- <div class="prize-div"> -->
@@ -25,9 +24,10 @@
                     <span>
                       <% selected_prize = prize.id%>
                       <%= simple_form_for [@questionnaire, @result], html: { class: 'start-btn' } do |f|  %>
-                      <%= f.hidden_field :result, value: "" %>
-                      <%= f.submit "Let's play", { class: "prize-submit" } %>
+                      <%= f.hidden_field :result, value: selected_prize %>
+                      <%= f.submit "Choose and play", { class: "prize-submit" } %>
                       <% end %>
+
                     </span>
                     <span data-toggle="modal" data-target="#prize<%=prize.id%>" class="start-btn"> Choose again</span>
                   </div>
