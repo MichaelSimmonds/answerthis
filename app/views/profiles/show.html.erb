@@ -15,10 +15,10 @@
       <p>Date of birth: <%=current_profile.dob%></p>
       <p>Gender: <%=current_profile.gender%></p>
       <br>
-      <%else%>
+  <%else%>
       <h2>Your profile is incomplete</h2>
       <%= link_to "Complete profile now", edit_profile_path(current_profile.id), class: "start-btn"%>
-      <%end%>
+  <%end%>
 
       <% if current_profile.is_client == 1 && @profile.questionnaires %>
       <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
@@ -54,6 +54,7 @@
  </div>
 </div>
 <br>
+<%= link_to "Edit profile", edit_profile_path(current_profile.id), class: "start-btn text-center"%>
 <div class="container text-center ">
  <%= link_to "Back home", root_path, class: "start-btn" %>
 </div>

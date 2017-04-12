@@ -10,12 +10,15 @@
   <%if prefilled%>
     <%first_name = @profile.user.first_name %>
     <%last_name = @profile.user.last_name %>
+    <%dob = Date.yesterday%>
   <%else%>
     <%first_name = @profile.first_name %>
     <%last_name = @profile.last_name %>
+    <%dob = Date.yesterday%>
   <%end%>
 
   <%dob = @profile.dob || Date.yesterday%>
+
   <%gender = @profile.gender || "male"%>
 
   <div class="form-wrapper">
@@ -30,7 +33,7 @@
 
         <%= f.input :last_name, label: 'Last name', input_html: {value: last_name, class:"form_field" }, readonly: prefilled, required: true%>
 
-        <%= f.input :dob, label: 'Date of birth', input_html: {value: dob, class: "form_field" }, readonly: false, start_year: Date.today.year - 80, end_year: Date.today.year - 14, required: true%>
+        <%= f.input :dob, label: 'Date of birth', input_html: {value: dob, class: "form_field" }, readonly: false, start_year: Date.today.year - 55, end_year: Date.today.year - 14, required: true%>
 
         <%= f.select(:gender, label: 'Gender', input_html: {value: gender, class: "form_field" }, readonly: false, required: true) do %>
           <% [['Male', 'male'], ['Female', 'female'], ['Rather not say', 'no-gender']].each do |c| -%>
