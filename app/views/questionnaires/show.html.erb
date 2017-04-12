@@ -4,34 +4,49 @@
 
   <h1><%= @questionnaire.title%></h1>
   <p class="lighter-text"><%= @questionnaire.description%></p>
+  <div class="button">
+    <%= link_to "All questionnaires", questionnaires_path(@questionnaire), class: "purple-btn" %>
+  </div>
 
   <hr class="orange-line">
+  <div class="title-div">
+    <h2 class="q-or-a-title">Questions</h2>
+  </div>
 
-  <h2>Questions</h2>
+  <hr class="orange-line-smaller">
 
   <div class="questions-div">
+
     <% question_number = 0 %>
-    <% @questionnaire.questions.each_with_index do |question, index| %>
 
-    <% question_number += 1 %>
-    <% question_number.to_s %>
-    <div class="question-card">
-      <h3><%= question_number %>: <%= question.title %></h3>
-      <p class="lighter-text"><%= question.body %></p>
-      <ul class="answers-list">
+    <ul class="questions-list">
 
-        <% question.answers.each_with_index do |answer| %>
-        <li><%= answer.body %></li>
-        <% end %>
+      <% @questionnaire.questions.each do |question| %>
+      <% question_number += 1 %>
+      <% question_number.to_s %>
+      <li class="question-list-item">
+        <div class="question-card">
+          <h3><%= question_number %>: <%= question.title %></h3>
+          <p class="lighter-text"><%= question.body %></p>
+          <ul class="answers-list">
+            <% question.answers.each do |answer| %>
+            <li><%= answer.body %></li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+      <% end %>
 
-      </ul>
-    </div>
-    <% end %>
+    </ul>
   </div>
 
   <hr class="orange-line">
 
-  <h2>Prizes</h2>
+  <h2 class="q-or-a-title">Prizes</h2>
+  <div class="button">
+    <%= link_to "Add prizes", new_questionnaire_prize_path(@questionnaire), class: "purple-btn" %>
+  </div>
+  <hr class="orange-line-smaller">
 
   <div class="prizes-div">
     <% @questionnaire.prizes.each_with_index do |prize, index| %>
@@ -50,13 +65,7 @@
     <% end %>
   </div>
 
+  <hr class="orange-line" style="margin-bottom: 5% !important;">
 
-  <div class="button">
-    <%= link_to "Add prizes", new_questionnaire_prize_path(@questionnaire), class: "purple-btn" %>
-  </div>
-  <hr class="orange-line">
-  <div class="button">
-    <%= link_to "All questionnaires", questionnaires_path(@questionnaire), class: "purple-btn" %>
-  </div>
 
 </div>
