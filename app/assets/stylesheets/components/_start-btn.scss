@@ -6,6 +6,9 @@
   padding: 6px;
   margin-bottom: 1%;
   transition: background-color 0.5s, color 0.5s, border-radius 0s;
+  display: block;
+  width: 300px;
+  margin: 0.6em auto;
 }
 .start-btn:hover {
   background-color: $accent-orange;

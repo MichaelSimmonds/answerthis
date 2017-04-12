@@ -20,21 +20,27 @@
   <% if current_profile.is_client == 1 && @profile.questionnaires %>
   <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
   <% end %>
-
-  <h1>Prizes won:</h1>
-  <div class="container">
+  <div class="container ">
+    <h1>Prizes won:</h1>
+    <% @profile.results.each do |result| %>
     <div class="row">
-      <div class="col-sm-offset-4 col-sm-12">
-        <% @profile.results.each do |result| %>
-        <div class="prize-card">
-          <li><%= result.status %></li>
-          <li><%= result.prize_id %></li>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <%= link_to "Back home", root_path, class: "start-btn" %>
-
+      <div class="prizes-won-card col-xs-12 col-sm-6 col-lg-6">
+       <% if result.status == 1 %>
+       <p>Won, 1st prize!</p>
+       <p><%= result.prize.title %></p>
+       <%= link_to "Redeem", root_path, class: "start-btn"%>
+       <% elsif result.status == 2 %>
+       <p>Won, 2nd prize!</p>
+       <% elsif result.status == 0 %>
+       <p>Lost...</p>
+       <% end %>
+     </div>
+   </div>
+   <% end %>
+ </div>
 </div>
+ <br>
+ <div class="container text-center ">
+ <%= link_to "Back home", root_path, class: "start-btn" %>
+ </div>
+
