@@ -1,14 +1,17 @@
 <div class="theme text-center">
   <%if current_profile.first_name && current_profile.last_name && current_profile.dob && current_profile.gender%>
 
-  <h1>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h1>
+  <h2>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h2>
+  <br>
+  <hr class = "orange-line-smaller">
+
   <div class="container text-box-profile">
     <div class="row">
       <% if current_profile.is_client == 1 %>
       <p>Company name: <%=current_profile.company_name%></p>
       <p>Company address: <%=current_profile.company_address%></p>
       <% end %>
-
+      <br>
       <br>
       <p>First Name: <%=current_profile.first_name.capitalize%></p>
       <p>Last Name: <%=current_profile.last_name.capitalize%></p>
@@ -24,18 +27,20 @@
       <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
       <% end %>
     </div>
-
   </div>
+
+  <%= link_to "Edit profile", edit_profile_path(current_profile.id), class: "start-btn text-center"%>
+  <br>
+  <hr class = "orange-line-smaller">
   <div class="container">
     <% if current_profile.is_client == nil %>
     <!-- Check if there are results -->
     <% if @profile.results != [] %>
     <div class="row">
-
-
-
       <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
+        <br>
         <h2 class="text-center theme">Prizes won:</h2>
+        <br>
       </div>
       <!-- ****************** -->
 
@@ -55,19 +60,21 @@
       <!-- show different content based on result status -->
       <% if result.status == 1 || result.status == 2 %>
       <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
-
-
-
         <div class="prizes-won-card">
-          <% if result.status == 1 %>
-          <p>Won, 1st prize!</p>
-          <p><%= result.prize.title %></p>
+          <div class="prize-img" style="background-image:url('<%= image_path result.prize.image_url %>')">
+            <!-- <%= image_tag result.prize.image_url %> -->
+          </div>
+          <div class="prize-desc">
+            <% if result.status == 1 %>
+            <h3>1st prize!</h3>
+            <p><%= result.prize.title %></p>
 
-          <button class="start-btn" data-toggle="modal" data-target="#redeemModal">Redeem</button>
+            <button class="start-btn" data-toggle="modal" data-target="#redeemModal">Redeem</button>
 
-          <% else%>
-          <p>Won, 2nd prize!</p>
-          <% end %>
+            <% else%>
+            <p>Won, 2nd prize!</p>
+            <% end %>
+          </div>
         </div>
       </div>
       <% end %>
@@ -81,8 +88,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
         <div class="prize-won-actions">
-          <%= link_to "Edit profile", edit_profile_path(current_profile.id), class: "start-btn text-center"%>
-          <%= link_to "Back home", root_path, class: "start-btn" %>
+          <!-- <%= link_to "Back home", root_path, class: "start-btn" %> -->
         </div>
       </div>
     </div>
