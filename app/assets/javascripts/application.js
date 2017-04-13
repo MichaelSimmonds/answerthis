@@ -6,6 +6,7 @@
 //= require questionnaires_play
 //= require spinner
 //= require user_msg_on_spinner_page
+//= require bootstrap-datepicker
 
 // $(".alert").slideUp(700)
 $(".alert").ready(function(){
@@ -14,6 +15,8 @@ $(".alert").ready(function(){
   }, 1500)
 });
 
-
-
-
+$('.datepicker').datepicker({
+    startView: 2,
+    maxViewMode: 2,
+    autoclose: true
+});
