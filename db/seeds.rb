@@ -14,6 +14,7 @@
 
 # 10.times do
 # Answer.create!(question_id: Question.all.pluck(:id).sample)
+Result.delete_all
 Answer.delete_all
 Question.delete_all
 Prize.delete_all
@@ -33,7 +34,7 @@ user_2 = User.create!(email: "lucas@gmail.com", password: "lucas@gmail.com", pas
 profile_1 = Profile.create!(first_name: "Ben", last_name: "Peterson", dob: Date.new(1989, 2, 21), gender: "Male", is_client: 1, company_name: "BMW", company_address: "Jekerstraat 55, Amsterdam", user_id: user_1.id)
 profile_2 = Profile.create!(first_name: "Luca", last_name: "Roma", dob: Date.new(1959, 11, 21), gender: "Male", is_client: 0, company_name: "", company_address: "", user_id: user_2.id)
 
-questionnaire_1 = Questionnaire.create!(title: "Market research BMW", description: "This questionnaire is about your preference as a potential car owner.", profile_id: profile_1.id)
+questionnaire_1 = Questionnaire.create!(title: "Market research BMW", description: "This questionnaire is being conducted on behalf of BMW Netherlands. As one of the leading car production companies in Europe we are always interested in keeping a close eye on what the public thinks about our cars and cars in general. This questionnaire aims to give us a better insight in the needs and wishes of young (potential) car owners.", profile_id: profile_1.id)
 
 question_1 = Question.create!(title: "Car owner?", body: "Do you currently own a car?", questionnaire_id: questionnaire_1.id)
 answer_1 = Answer.create!(body: "Yes", question_id: question_1.id)

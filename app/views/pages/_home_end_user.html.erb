@@ -1,11 +1,11 @@
 <div class="welcome-container text-center">
 
  <% if current_profile.first_name %>
-     <h3><%= @welcome_message1 %> <%=current_user.profile.first_name.capitalize%><%=@welcome_message2%></h3>
+     <h2><%= @welcome_message1 %> <%=current_user.profile.first_name.capitalize%><%=@welcome_message2%></h2>
  <% else %>
-    <h3>Welcome!</h3>
+    <h2>Welcome!</h2>
  <% end %>
-    <h3>Ready to win some cool prizes?</h3>
+    <p>Ready to win some cool prizes today?</p>
 
  <%= link_to "Play!", new_questionnaire_result_path(Questionnaire.last.id), class: "start-btn" %>
 </div>
