@@ -16,6 +16,10 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# # Change datepicker format
+# Date::DATE_FORMATS[:default] = "%d/%m/%Y"
+
+
 module Answerthis
   class Application < Rails::Application
     config.generators do |generate|
