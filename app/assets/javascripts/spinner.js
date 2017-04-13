@@ -1,6 +1,6 @@
 //set default degree (360*5)
 var second_prize =  23.89 * 30;
-var first_prize = 23.89 * 40;
+var first_prize = 23.6 * 40;
 var lose = 23.89 * 50;
 
 $(document).ready(function(){
@@ -80,5 +80,3 @@ $(document).ready(function(){
     });
   }
 });//DOCUMENT READY
-
-
