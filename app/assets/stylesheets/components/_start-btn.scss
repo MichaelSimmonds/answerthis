@@ -15,7 +15,23 @@
   border: 1px solid $accent-orange;
   text-decoration: none;
 }
-
+.start-btn-form{
+  background-color: rgba(0, 0, 0, 0);
+  color: $accent-orange;
+  border: 1px solid $accent-orange;
+  border-radius: 2px;
+  padding: 6px;
+  transition: background-color 0.5s, color 0.5s, border-radius 0s;
+  display: block;
+  width: 50%;
+  margin: 0.6em auto;
+}
+.start-btn-form:hover {
+  background-color: $accent-orange;
+  color: $background-blue;
+  border: 1px solid $accent-orange;
+  text-decoration: none;
+}
 .start-btn:visited{
   text-decoration: none;
 }

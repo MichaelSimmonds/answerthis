@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   margin-top: 2%;
   margin-bottom: 2%;
 }
@@ -32,4 +31,22 @@
   margin-top: 2%;
   margin-bottom: 2%;
   // height: 20px;
+}
+
+.input-row{
+  display: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+.input-tag{
+  margin-top: 1.5%;
+  // padding-left: 0;
+  // padding-right: 0;
+}
+
+.input-field{
+  // padding-left: 0;
+  // padding-right: 0;
 }
