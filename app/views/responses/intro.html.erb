@@ -1,5 +1,20 @@
 <div class="theme text-center">
-  <h1><%= @questionnaire.title%></h1>
-  <p><%= @questionnaire.description%></p>
-  <%= link_to "Lets Play", new_questionnaire_question_response_path(@questionnaire.id, @question.id), { class: "start-btn" } %>
+  <div class="container col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="text-box">
+    <div>
+      <h1><%= @questionnaire.title%></h1>
+      <p><%= @questionnaire.description%></p>
+    </div>
+    </div>
+
+    <div>
+      <%= link_to "Start", new_questionnaire_question_response_path(@questionnaire.id, @question.id), { class: "start-btn" } %>
+    </div>
+
+    <div class="company-banner-questionnaire ">
+      <div class="banner-image">
+        <%= image_tag("http://i58.tinypic.com/315yjqb.jpg", :alt => "#{@questionnaire.profile.company_name} banner", class: "banner-image") %>
+      </div>
+    </div>
+  </div>
 </div>
