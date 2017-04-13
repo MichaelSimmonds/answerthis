@@ -16,6 +16,7 @@ $(".alert").ready(function(){
 });
 
 var currentDate = $(".datepicker").val()
+$(".datepicker").val(currentDate)
 
 $('.datepicker').datepicker({
     startView: 2,
