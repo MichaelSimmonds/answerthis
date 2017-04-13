@@ -30,12 +30,15 @@
   <% if current_profile.is_client == nil %>
   <!-- Check if there are results -->
     <% if @profile.results != [] %>
-      <h1>Prizes won:</h1>
+        <div class="row">
+        <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
+      <h2 class="text-center theme">Prizes won:</h2>
+      </div>
       <% @profile.results.each do |result| %>
       <!-- show different content based on result status -->
       <% if result.status == 1 || result.status == 2 %>
-        <div class="row">
-          <div class="prizes-won-card col-xs-12 col-sm-6 col-lg-6">
+          <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
+          <div class="prizes-won-card">
            <% if result.status == 1 %>
                <p>Won, 1st prize!</p>
                <p><%= result.prize.title %></p>
@@ -43,18 +46,23 @@
            <% else%>
                 <p>Won, 2nd prize!</p>
            <% end %>
+           </div>
        </div>
-     </div>
       <% end %>
      <% end %>
+     </div>
    <% else %>
    <h1>No pizes yet...</h1>
    <% end %>
    <% end %>
+   <div class="row">
+   <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
+   <div class="prize-won-actions">
+<%= link_to "Edit profile", edit_profile_path(current_profile.id), class: "start-btn text-center"%>
+ <%= link_to "Back home", root_path, class: "start-btn" %>
+ </div>
+</div>
+   </div>
  </div>
 </div>
 <br>
-<%= link_to "Edit profile", edit_profile_path(current_profile.id), class: "start-btn text-center"%>
-<div class="container text-center ">
- <%= link_to "Back home", root_path, class: "start-btn" %>
-</div>

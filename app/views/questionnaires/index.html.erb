@@ -14,11 +14,10 @@
   <hr class="orange-line-small">
   <div class="questions-list-div">
     <ul class="questions-list">
-      <hr class="purp-line">
       <% current_profile.questionnaires.each_with_index do |questionnaire, index| %>
         <div class="questionnaire-card">
           <li class="questions-list-item">
-            <%= link_to questionnaire.title, questionnaire_path(questionnaire), class: 'link' %> - <%= questionnaire.created_at %>
+            <%= link_to questionnaire.title, questionnaire_path(questionnaire), class: 'link' %>
           </li>
           <% if number > 1 %>
             <hr class="purp-line">

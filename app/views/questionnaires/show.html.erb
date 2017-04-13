@@ -1,19 +1,15 @@
 <div class="text-center theme">
-
-  <hr class="orange-line-full">
-
+<div>
   <h1><%= @questionnaire.title%></h1>
+  <hr class="orange-line">
   <p class="lighter-text"><%= @questionnaire.description%></p>
   <div class="button">
     <%= link_to "All questionnaires", questionnaires_path(@questionnaire), class: "purple-btn" %>
   </div>
 
-  <hr class="orange-line">
   <div class="title-div">
     <h2>Questions</h2>
   </div>
-
-  <hr class="orange-line-smaller">
 
   <div class="questions-div">
 
@@ -40,13 +36,13 @@
     </ul>
   </div>
 
-  <hr class="orange-line">
 
   <h2>Prizes</h2>
+  <hr class="orange-line">
   <div class="button">
     <%= link_to "Add prizes", new_questionnaire_prize_path(@questionnaire), class: "purple-btn" %>
   </div>
-  <hr class="orange-line-smaller">
+
 
   <div class="prizes-div">
     <% @questionnaire.prizes.each_with_index do |prize, index| %>
