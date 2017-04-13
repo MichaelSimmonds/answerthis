@@ -23,5 +23,4 @@ $('.datepicker').datepicker({
     maxViewMode: 2,
     autoclose: true,
     startDate: "03-03-1950"
-
 });
