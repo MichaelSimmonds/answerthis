@@ -10,14 +10,14 @@
   <%if prefilled%>
     <%first_name = @profile.user.first_name %>
     <%last_name = @profile.user.last_name %>
-    <!-- <%dob = Date.yesterday%> -->
+    <%dob = @profile.dob%>
   <%else%>
     <%first_name = @profile.first_name %>
     <%last_name = @profile.last_name %>
-    <!-- <%dob = Date.yesterday%> -->
+    <%dob = @profile.dob%>
   <%end%>
 
-  <!-- <%dob = @profile.dob%> -->
+  <!-- <%dob = @profile.dob %> -->
 
   <%gender = @profile.gender || "male"%>
 
