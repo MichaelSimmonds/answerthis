@@ -2,27 +2,31 @@
 
 
   <div class="hero-banner">
+      <%= image_tag("laptop.png", class: "image-left") %>
 
-    <%= image_tag("laptop.png", class: "image-left") %>
-    <!-- FOR CLIENTS -->
-    <% if current_user && current_profile.is_client == 1 %>
-    <%= render "home_clients"%>
-    <% end %>
-    <!-- FOR END USERS -->
-    <% if current_user && current_profile.is_client != 1 %>
-    <%= render "home_end_user" %>
-    <% end %>
-    <!-- FOR THE PUBLIC -->
-    <% if !current_user %>
-    <%= render "home_for_public" %>
-    <% end %>
+      <!-- FOR CLIENTS -->
+        <% if current_user && current_profile.is_client == 1 %>
+        <%= render "home_clients"%>
+        <% end %>
+        <!-- FOR END USERS -->
+        <% if current_user && current_profile.is_client != 1 %>
+        <%= render "home_end_user" %>
+        <% end %>
+        <!-- FOR THE PUBLIC -->
+        <% if !current_user %>
+        <%= render "home_for_public" %>
+        <% end %>
 
-    <%= image_tag("phone.png", class: "image-right") %>
+      <%= image_tag("phone.png", class: "image-right") %>
+
+      <h1>
+      <i class="fa fa-arrow-down banner-arrow"></i>
+      </h1>
 
   </div>
 
   <% unless user_signed_in? %>
-    <div class="info-banner">
+    <div id="info-banner">
   <div class="container">
       <div class="row">
         <div class="card col-xs-12 col-sm-4 col-lg-4">

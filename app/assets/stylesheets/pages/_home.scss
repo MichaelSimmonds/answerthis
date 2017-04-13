@@ -53,3 +53,17 @@
 .client-home-button{
   margin-bottom: 6%;
 }
+
+.banner-arrow{
+  font-size: 1em;
+  position: absolute;
+  right: 48%;
+  top: 92%;
+  color: rgba(239, 125, 46, 0.7);
+  transition: color 0.5s;
+}
+
+.banner-arrow:hover{
+  color: $accent-orange;
+}
+
