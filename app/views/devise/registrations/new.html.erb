@@ -1,9 +1,8 @@
-<dib class="theme text-center">
+<div class="theme text-center">
   <h2>Sign up</h2>
   <hr class="orange-line-smaller">
   <div class="form-wrapper">
-    <div style="height: 100%; width: 40%;">
-
+    <div class="form-div">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
@@ -17,11 +16,9 @@
         </div>
 
       <% end %>
-
-      <hr class="orange-line-full" style="margin-top: 2.5%; margin-bottom: 2.5%;">
-      <%= render "devise/shared/links" %>
-
     </div>
   </div>
-</dib>
+  <hr class="orange-line-smaller" style="margin-top: 2.5%; margin-bottom: 2.5%;">
+  <%= render "devise/shared/links" %>
+</div>
 
