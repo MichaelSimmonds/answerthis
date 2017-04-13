@@ -4,20 +4,35 @@
   <div class="form-wrapper">
     <div class="login-form">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email, required: false, autofocus: true %>
-          <%= f.input :password, required: false %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+      <div style="margin-bottom: 1%;">
+        <div class="row input-row">
+          <h5 class="col-xs-12 col-lg-6 input-tag">Email</h5>
+          <div class="col-xs-12 col-lg-6 input-field">
+            <%= f.input_field :email, required: false, autofocus: true, placeholder: 'example@email.com', style: 'width: 100%;' %>
+          </div>
         </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Log in", class: 'start-btn' %>
+
+        <div class="row input-row">
+          <h5 class="col-xs-12 col-lg-6 input-tag">Password</h5>
+          <div class="col-xs-12 col-lg-6 input-field">
+            <%= f.input_field :password, required: false, placeholder: '******', style: 'width: 100%;' %>
+          </div>
         </div>
+      </div>
+
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: 'start-btn-form' %>
+      </div>
+
       <% end %>
     </div>
   </div>
 
   <hr class="orange-line-smaller">
 
-    <%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 
 </div>
