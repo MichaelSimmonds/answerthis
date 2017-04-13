@@ -15,8 +15,12 @@ $(".alert").ready(function(){
   }, 1500)
 });
 
+var currentDate = $(".datepicker").val()
+
 $('.datepicker').datepicker({
     startView: 2,
     maxViewMode: 2,
-    autoclose: true
+    autoclose: true,
+    startDate: "03-03-1950"
+
 });
