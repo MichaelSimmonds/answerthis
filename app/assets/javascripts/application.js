@@ -18,5 +18,6 @@ $(".alert").ready(function(){
 $('.datepicker').datepicker({
     startView: 2,
     maxViewMode: 2,
-    autoclose: true
+    autoclose: true,
+    startDate: "03-03-1950"
 });
