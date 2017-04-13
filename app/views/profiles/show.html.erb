@@ -1,24 +1,27 @@
 <div class="theme text-center">
   <%if current_profile.first_name && current_profile.last_name && current_profile.dob && current_profile.gender%>
 
-  <h1>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h1>
+  <h2>Hi <%=current_profile.first_name.capitalize%>, welcome to your profile!</h2>
+  <br>
+  <hr class = "orange-line-smaller">
+
   <div class="container text-box-profile">
     <div class="row">
       <% if current_profile.is_client == 1 %>
       <p>Company name: <%=current_profile.company_name%></p>
       <p>Company address: <%=current_profile.company_address%></p>
       <% end %>
-
+      <br>
       <br>
       <p>First Name: <%=current_profile.first_name.capitalize%></p>
       <p>Last Name: <%=current_profile.last_name.capitalize%></p>
       <p>Date of birth: <%=current_profile.dob%></p>
       <p>Gender: <%=current_profile.gender%></p>
       <br>
-  <%else%>
+      <%else%>
       <h2>Your profile is incomplete</h2>
       <%= link_to "Complete profile now", edit_profile_path(current_profile.id), class: "start-btn"%>
-  <%end%>
+      <%end%>
 
       <% if current_profile.is_client == 1 && @profile.questionnaires %>
       <p>You created: <strong><%= @profile.questionnaires.count %></strong> questionnairs</p>
@@ -26,43 +29,73 @@
     </div>
   </div>
 
+  <%= link_to "Edit profile", edit_profile_path(current_profile.id), class: "start-btn text-center"%>
+  <br>
+  <hr class = "orange-line-smaller">
   <div class="container">
-  <% if current_profile.is_client == nil %>
-  <!-- Check if there are results -->
+    <% if current_profile.is_client == nil %>
+    <!-- Check if there are results -->
     <% if @profile.results != [] %>
-        <div class="row">
-        <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
-      <h2 class="text-center theme">Prizes won:</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
+        <br>
+        <h2 class="text-center theme">Prizes won:</h2>
+        <br>
       </div>
+      <!-- ****************** -->
+
+    <div>
+      <div class="modal fade redeem-modal" id="redeemModal">
+        <h2 style="margin-bottom: 3%;">Prize sent!</h2>
+        <hr class="orange-line">
+        <h4 style="margin-bottom: 3%;">An email containing you voucher code has been sent to your email</h4>
+        <p style="margin-top: 3%; margin-bottom: 3%;">Are you ready to play again?</p>
+        <!-- <hr class="orange-line-smaller"> -->
+        <%= link_to "Continue", root_path, class: "start-btn"%>
+        <button class="start-btn" data-toggle="modal" data-target="#redeemModal">Back</button>
+
+      </div>
+      <!-- ****************** -->
       <% @profile.results.each do |result| %>
       <!-- show different content based on result status -->
       <% if result.status == 1 || result.status == 2 %>
-          <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
-          <div class="prizes-won-card">
-           <% if result.status == 1 %>
-               <p>Won, 1st prize!</p>
-               <p><%= result.prize.title %></p>
-               <%= link_to "Redeem", root_path, class: "start-btn"%>
-           <% else%>
-                <p>Won, 2nd prize!</p>
-           <% end %>
-           </div>
-       </div>
+      <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
+        <div class="prizes-won-card">
+          <div class="prize-img" style="background-image:url('<%= image_path result.prize.image_url %>')">
+            <!-- <%= image_tag result.prize.image_url %> -->
+          </div>
+          <div class="prize-desc">
+            <% if result.status == 1 %>
+            <h3>1st prize!</h3>
+            <p><%= result.prize.title %></p>
+
+            <button class="start-btn" data-toggle="modal" data-target="#redeemModal">Redeem</button>
+
+            <% else%>
+            <p>Won, 2nd prize!</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
       <% end %>
-     <% end %>
-     </div>
-   <% else %>
-   <h1>No pizes yet...</h1>
-   <% end %>
-   <% end %>
-   <div class="row">
-   <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
-   <div class="prize-won-actions">
-<%= link_to "Edit profile", edit_profile_path(current_profile.id), class: "start-btn text-center"%>
- <%= link_to "Back home", root_path, class: "start-btn" %>
- </div>
-</div>
-   </div>
- </div>
+      <% end %>
+    </div>
+    </div>
+    <% else %>
+    <h1>No pizes yet...</h1>
+    <% end %>
+    <% end %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-lg-6 col-sm-offset-3 col-lg-offset-3">
+        <div class="prize-won-actions">
+          <!-- <%= link_to "Back home", root_path, class: "start-btn" %> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 <br>
+
+<!-- MODAL -->
