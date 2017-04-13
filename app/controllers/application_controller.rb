@@ -1,9 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :gotowebsite!
 
   helper_method :current_profile
   attr_reader :current_profile
+
+  def gotowebsite!
+    if not request.host =~ /www/ and Rails.env.production?
+      redirect_to 'http://www.answerthis.nl'
+    end
+  end
 
   def current_profile
     if current_user
