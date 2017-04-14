@@ -1,7 +1,6 @@
 <div class="text-center theme">
 
   <h2>Edit profile</h2>
-  <strong><p><%=@profile.user.email%></p></strong>
   <hr class="orange-line-smaller">
 
 
@@ -38,11 +37,11 @@
       <div class="form-inputs">
         <%= f.input :first_name, label: 'First name', input_html: {value: first_name, class:"form_field" }, readonly: prefilled, required: true%>
         <%= f.input :last_name, label: 'Last name', input_html: {value: last_name, class:"form_field" }, readonly: prefilled, required: true%>
-        <%= f.input :dob, as: :string, label: 'Date of birth', input_html: {value: dob, class: "datepicker form_field",  id: "date" }, readonly: false, required: true%>
+        <%= f.input :dob, as: :string, label: 'Date of birth', input_html: {value: Date.today, class: "datepicker form_field",  id: "date" }, readonly: false, required: true%>
       </div>
 
-      <div style="margin-top: 8%;">
-        <%= f.select(:gender, label: 'Gender', input_html: {value: gender, class: "form_field" }, readonly: false, required: true) do %>
+      <div class="form-dropdown" style="margin-top: 8%;">
+        <%= f.select(:gender, label: 'Gender', input_html: {value: gender, class: "form_field form-dropdown"}, readonly: false, required: true) do %>
           <% [['Male', 'male'], ['Female', 'female'], ['Rather not say', 'no-gender']].each do |c| -%>
             <%= content_tag(:option, c.first, value: c.last) %>
           <% end %>
