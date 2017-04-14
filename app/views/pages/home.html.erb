@@ -15,13 +15,13 @@
         <!-- FOR THE PUBLIC -->
         <% if !current_user %>
         <%= render "home_for_public" %>
+        <h1>
+          <i class="fa fa-arrow-down banner-arrow"></i>
+        </h1>
         <% end %>
 
       <%= image_tag("phone.png", class: "image-right") %>
 
-      <h1>
-      <i class="fa fa-arrow-down banner-arrow"></i>
-      </h1>
 
   </div>
 
