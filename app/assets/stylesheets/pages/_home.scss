@@ -18,6 +18,10 @@
     margin: 1.2em;
   }
 }
+.banner-logo{
+max-width: 80%;
+width: 350px;
+}
 
 .welcome-container {
   // transform: translate(0%, -80%)
@@ -66,4 +70,3 @@
 .banner-arrow:hover{
   color: $accent-orange;
 }
-

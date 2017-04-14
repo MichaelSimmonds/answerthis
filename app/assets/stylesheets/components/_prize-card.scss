@@ -35,6 +35,13 @@
   margin-left: 2em;
 }
 
+@media (max-width: 800px) {
+  .prize-desc{
+    margin-left: 0px;
+    max-width: 80%;
+  }
+}
+
 .prize-card{
   border: 1px solid $main-purple;
   border-radius: 2px;

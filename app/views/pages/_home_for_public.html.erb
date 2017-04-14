@@ -2,8 +2,8 @@
   <div class="welcome-container text-center">
     <div class="row">
 
-      <%= image_tag 'answer_this_logo.png' %>
-      <h3 style="margin-top: 3%; margin-bottom: 4%;">Share your opinion and win</h3>
+      <%= image_tag 'answer_this_logo.png', class: "banner-logo" %>
+      <h4 style="margin-top: 3%; margin-bottom: 4%;">Share your opinion and win</h4>
       <%= link_to "Sign up",  new_user_registration_path, class: "start-btn" %>
 
       <%= mail_to "hello@answerthis.nl", subject: "I love your app!!", :body => "I realy love your app! I already won an iphone, a car and a holiday to the Maldives!!", class: "start-btn" do %>
@@ -12,4 +12,3 @@
     </div>
   </div>
 </div>
-
