@@ -1,8 +1,9 @@
 <div class="text-center theme">
 <div>
   <h1><%= @questionnaire.title%></h1>
-  <hr class="orange-line">
-  <p class="lighter-text"><%= @questionnaire.description%></p>
+  <hr class="orange-line-small">
+  <br>
+  <p class="lighter-text" style="max-width: 550px; text-align: left; margin: auto;"><%= @questionnaire.description%></p>
   <div class="button">
     <%= link_to "All questionnaires", questionnaires_path(@questionnaire), class: "purple-btn" %>
   </div>
