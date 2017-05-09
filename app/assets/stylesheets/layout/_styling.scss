@@ -1,9 +1,12 @@
 .theme{
   // padding-top: 10px;
+  position: relative;
   background-color: white;
   color: $main-purple;
   height: 100%;
 }
+
+a:visited { text-decoration: none; color:$accent-orange; }
 
 .link{
   color: $accent-orange;
@@ -70,5 +73,3 @@
   color: $main-purple;
   background-color: $main-purple;
 }
-
-
