@@ -35,8 +35,11 @@
     <%= render 'shared/navbar' %>
     <!-- app/views/layouts/application.html.erb -->
     <%= render 'shared/flashes' %>
-
     <%= yield %>
+
+    <!-- ***THIS IS THE WARNING THAT THERE ARE NO PRIZES!******************* -->
+    <%= render 'shared/corner_label' %>
+    
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
